@@ -1,531 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Digital Manipulation: Moving Elements & Displacement</title>
-<style>
-  :root {
-    --primary: #ea37a3;
-    --primary-light: #fdf1f5;
-    --secondary: #0a8080;
-    --secondary-light: #f5ffff;
-    --dark: #222;
-    --light: #fff;
-    --grid-light: #e0e0e0;
-  }
-  
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: "Typewriter Condensed", "Courier New", monospace;
-    background-image:
-      linear-gradient(var(--grid-light) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid-light) 1px, transparent 1px);
-    background-size: 20px 20px, 20px 20px;
-    background-attachment: fixed;
-    color: var(--dark);
-    padding: 20px;
-    line-height: 1.6;
-  }
-  
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.97);
-    border: 3px solid var(--primary);
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-    padding: 2rem;
-  }
-  
-  @media (max-width: 768px) {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Manipulation: Moving Elements & Displacement</title>
+  <style>
+    :root {
+      --primary: #ea37a3;
+      --primary-light: #fdf1f5;
+      --secondary: #0a8080;
+      --secondary-light: #f5ffff;
+      --dark: #222;
+      --light: #fff;
+      --grid-light: #e0e0e0;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: "Typewriter Condensed", "Courier New", monospace;
+      background-image:
+        linear-gradient(var(--grid-light) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-light) 1px, transparent 1px);
+      background-size: 20px 20px, 20px 20px;
+      background-attachment: fixed;
+      color: var(--dark);
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
     .container {
-      padding: 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.97);
+      border: 3px solid var(--primary);
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
     }
-  }
-  
-  /* Typography */
-  h1, h2, h3 {
-    font-family: "Typewriter Condensed", "Courier New", monospace;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.8em;
-  }
-  
-  h1 {
-    color: var(--primary);
-    font-size: 1.8rem;
-    border-bottom: 2px solid var(--secondary);
-    padding-bottom: 10px;
-    margin-bottom: 1rem;
-  }
-  
-  h2 {
-    color: var(--secondary);
-    font-size: 1.4rem;
-    margin-top: 1.5rem;
-    display: flex;
-    align-items: center;
-  }
-  
-  h2::before {
-    content: "";
-    display: inline-block;
-    width: 6px;
-    height: 20px;
-    background: var(--primary);
-    margin-right: 10px;
-  }
-  
-  p {
-    line-height: 1.6;
-    margin-bottom: 1em;
-    font-size: 1rem;
-  }
-  
-  /* Video tutorials */
-  .video-tutorial {
-    margin: 20px 0;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  
-  .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-  }
-  
-  .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-  
-  .video-caption {
-    background: var(--secondary);
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  /* Tool cards */
-  .tool-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin: 20px 0;
-  }
-  
-  .tool-card {
-    border: 2px solid var(--secondary);
-    border-radius: 10px;
-    overflow: hidden;
-    background: white;
-  }
-  
-  .tool-header {
-    background: var(--secondary);
-    color: white;
-    padding: 10px 15px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-  }
-  
-  .tool-icon {
-    width: 30px;
-    height: 30px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-  }
-  
-  .tool-icon img {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .tool-steps {
-    padding: 15px;
-  }
-  
-  .tool-steps ol {
-    margin-left: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .tool-steps li {
-    margin-bottom: 8px;
-  }
-  
-  .tool-image {
-    width: 100%;
-    border-radius: 5px;
-    margin: 10px 0;
-  }
-  
-  .shortcut {
-    display: inline-block;
-    padding: 3px 7px;
-    background: #f2f2f2;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: monospace;
-    font-size: 0.9em;
-    margin: 0 2px;
-  }
-  
-  /* Preparation box */
-  .prep-box {
-    border: 2px dashed var(--primary);
-    border-radius: 10px;
-    padding: 15px;
-    margin: 20px 0;
-    background-color: var(--primary-light);
-  }
-  
-  .prep-box h3 {
-    color: var(--primary);
-    margin-top: 0;
-  }
-  
-  .prep-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .prep-item {
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    display: flex;
-    align-items: center;
-  }
-  
-  .prep-item img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-  }
-  
-  /* Quiz section */
-  .quiz-container {
-    margin: 30px 0;
-    border: 2px solid var(--secondary);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .quiz-header {
-    background: var(--secondary);
-    color: white;
-    padding: 10px 15px;
-    font-weight: bold;
-    font-size: 1.1rem;
-  }
-  
-  .quiz-content {
-    padding: 20px;
-    background: #f9f9f9;
-  }
-  
-  /* Drag and Drop Quiz */
-  .draggable-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .draggable {
-    padding: 10px 15px;
-    background-color: white;
-    border: 2px solid var(--secondary);
-    border-radius: 5px;
-    cursor: move;
-    user-select: none;
-    touch-action: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .draggable:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(10, 128, 128, 0.3);
-  }
-  
-  .drop-zone {
-    min-height: 180px;
-    border: 2px dashed var(--secondary);
-    border-radius: 5px;
-    padding: 15px;
-    background-color: white;
-    margin-top: 15px;
-  }
-  
-  .drop-zone p {
-    color: #666;
-    text-align: center;
-    margin: 0;
-  }
-  
-  /* Multiple choice */
-  .question {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  .question-text {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  
-  @media (max-width: 600px) {
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+    }
+    
+    /* Typography */
+    h1, h2, h3 {
+      font-family: "Typewriter Condensed", "Courier New", monospace;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.8em;
+    }
+    
+    h1 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 10px;
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      color: var(--secondary);
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 20px;
+      background: var(--primary);
+      margin-right: 10px;
+    }
+    
+    p {
+      line-height: 1.6;
+      margin-bottom: 1em;
+      font-size: 1rem;
+    }
+    
+    /* Video tutorials */
+    .video-tutorial {
+      margin: 20px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+    }
+    
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    .video-caption {
+      background: var(--secondary);
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    /* Tool cards */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .tool-card {
+      border: 2px solid var(--secondary);
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+    }
+    
+    .tool-header {
+      background: var(--secondary);
+      color: white;
+      padding: 10px 15px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .tool-icon {
+      width: 30px;
+      height: 30px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+    
+    .tool-icon img {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .tool-steps {
+      padding: 15px;
+    }
+    
+    .tool-steps ol {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .tool-steps li {
+      margin-bottom: 8px;
+    }
+    
+    .tool-image {
+      width: 100%;
+      border-radius: 5px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    
+    .shortcut {
+      display: inline-block;
+      padding: 3px 7px;
+      background: #f2f2f2;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9em;
+      margin: 0 2px;
+    }
+    
+    /* Preparation box */
+    .prep-box {
+      border: 2px dashed var(--primary);
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      background-color: var(--primary-light);
+    }
+    
+    .prep-box h3 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+    
+    .prep-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .prep-item {
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+    }
+    
+    .prep-item img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    /* Quiz section */
+    .quiz-container {
+      margin: 30px 0;
+      border: 2px solid var(--secondary);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .quiz-header {
+      background: var(--secondary);
+      color: white;
+      padding: 10px 15px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .quiz-content {
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    
+    /* Drag and Drop Quiz */
+    .draggable-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .draggable {
+      padding: 10px 15px;
+      background-color: white;
+      border: 2px solid var(--secondary);
+      border-radius: 5px;
+      cursor: move;
+      user-select: none;
+      touch-action: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .draggable:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(10, 128, 128, 0.3);
+    }
+    
+    .drop-zone {
+      min-height: 180px;
+      border: 2px dashed var(--secondary);
+      border-radius: 5px;
+      padding: 15px;
+      background-color: white;
+      margin-top: 15px;
+    }
+    
+    .drop-zone p {
+      color: #666;
+      text-align: center;
+      margin: 0;
+    }
+    
+    /* Multiple choice */
+    .question {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .question-text {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
     .options {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
-  }
-  
-  .option {
-    background: #f5f5f5;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: 1px solid #ddd;
-  }
-  
-  .option:hover {
-    background: #e0e0e0;
-  }
-  
-  .option.selected {
-    background: #d4edda;
-    border-color: #c3e6cb;
-  }
-  
-  .check-button {
-    background-color: var(--primary);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    margin-top: 15px;
-    font-family: "Typewriter Condensed", "Courier New", monospace;
-  }
-  
-  .check-button:hover {
-    background-color: #d72b92;
-  }
-  
-  .feedback {
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    display: none;
-  }
-  
-  .correct-feedback {
-    background: #d4edda;
-    color: #155724;
-  }
-  
-  .incorrect-feedback {
-    background: #f8d7da;
-    color: #721c24;
-  }
-  
-  .correct {
-    background-color: #d4edda !important;
-    border-color: #c3e6cb !important;
-  }
-  
-  .incorrect {
-    background-color: #f8d7da !important;
-    border-color: #f5c6cb !important;
-  }
-
-  /* Step-by-step grid */
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin: 20px 0;
-  }
-  
-  @media (max-width: 768px) {
+    
+    @media (max-width: 600px) {
+      .options {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .option {
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid #ddd;
+    }
+    
+    .option:hover {
+      background: #e0e0e0;
+    }
+    
+    .option.selected {
+      background: #d4edda;
+      border-color: #c3e6cb;
+    }
+    
+    .check-button {
+      background-color: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      font-family: "Typewriter Condensed", "Courier New", monospace;
+    }
+    
+    .check-button:hover {
+      background-color: #d72b92;
+    }
+    
+    .feedback {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: none;
+    }
+    
+    .correct-feedback {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .incorrect-feedback {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    
+    .correct {
+      background-color: #d4edda !important;
+      border-color: #c3e6cb !important;
+    }
+    
+    .incorrect {
+      background-color: #f8d7da !important;
+      border-color: #f5c6cb !important;
+    }
+    
+    /* Step-by-step grid */
     .steps-grid {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 20px 0;
     }
-  }
-  
-  .step-box {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    background: white;
-  }
-  
-  .step-number {
-    background: var(--secondary-light);
-    color: var(--secondary);
-    padding: 8px 15px;
-    font-weight: bold;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .step-content {
-    padding: 15px;
-  }
-  
-  .step-image {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    border: 1px solid #eee;
-  }
-  
-  /* Inspiration gallery */
-  .inspiration-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin: 20px 0;
-  }
-  
-  .inspiration-item {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    position: relative;
-  }
-  
-  .inspiration-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  }
-  
-  .inspiration-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-  }
-  
-  .inspiration-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 8px;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-  
-  /* Typography box */
-  .typography-box {
-    border: 2px solid var(--secondary);
-    border-radius: 10px;
-    padding: 15px;
-    margin: 25px 0;
-    background-color: var(--secondary-light);
-  }
-  
-  .typography-box h3 {
-    color: var(--secondary);
-    margin-top: 0;
-    margin-bottom: 15px;
-  }
-  
-  .font-sample {
-    margin: 15px 0;
-    padding: 10px;
-    background: white;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  .font-sample h4 {
-    margin-bottom: 5px;
-    color: var(--secondary);
-    font-size: 1rem;
-  }
-  
-  .font-example {
-    padding: 10px;
-    border: 1px dashed #ddd;
-    border-radius: 5px;
-    margin-top: 5px;
-  }
-  
-  .andale-mono {
-    font-family: "Andale Mono", monospace;
-  }
-  
-  .orator-std {
-    font-family: "Orator Std", "Courier New", monospace;
-  }
-  
-  .grandview {
-    font-family: "Grandview Display", "Segoe UI", sans-serif;
-  }
-  
-  .typewriter {
-    font-family: "Typewriter Condensed", "Courier New", monospace;
-  }
-  
-  /* Citation reminder */
-  .citation-reminder {
-    background-color: #fff3cd;
-    border: 1px solid #ffeeba;
-    border-radius: 5px;
-    padding: 10px 15px;
-    margin: 20px 0;
-    display: flex;
-    align-items: flex-start;
-  }
-  
-  .citation-reminder img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    margin-top: 3px;
-  }
-</style>
+    
+    @media (max-width: 768px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .step-box {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+    }
+    
+    .step-number {
+      background: var(--secondary-light);
+      color: var(--secondary);
+      padding: 8px 15px;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .step-content {
+      padding: 15px;
+    }
+    
+    .step-image {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      border: 1px solid #eee;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    
+    /* Modal for image popup */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      overflow: auto;
+    }
+    
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      z-index: 1001;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    /* Inspiration gallery */
+    .inspiration-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .inspiration-item {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .inspiration-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+    
+    .inspiration-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+    
+    .inspiration-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 8px;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    
+    /* Typography box */
+    .typography-box {
+      border: 2px solid var(--secondary);
+      border-radius: 10px;
+      padding: 15px;
+      margin: 25px 0;
+      background-color: var(--secondary-light);
+    }
+    
+    .typography-box h3 {
+      color: var(--secondary);
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    
+    .font-sample {
+      margin: 15px 0;
+      padding: 10px;
+      background: white;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    
+    .font-sample h4 {
+      margin-bottom: 5px;
+      color: var(--secondary);
+      font-size: 1rem;
+    }
+    
+    .font-example {
+      padding: 10px;
+      border: 1px dashed #ddd;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    
+    .andale-mono {
+      font-family: "Andale Mono", monospace;
+    }
+    
+    .orator-std {
+      font-family: "Orator Std", "Courier New", monospace;
+    }
+    
+    .grandview {
+      font-family: "Grandview Display", "Segoe UI", sans-serif;
+    }
+    
+    .typewriter {
+      font-family: "Typewriter Condensed", "Courier New", monospace;
+    }
+    
+    /* Citation reminder */
+    .citation-reminder {
+      background-color: #fff3cd;
+      border: 1px solid #ffeeba;
+      border-radius: 5px;
+      padding: 10px 15px;
+      margin: 20px 0;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .citation-reminder img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      margin-top: 3px;
+    }
+  </style>
 </head>
 <body>
 
@@ -534,38 +580,38 @@
   
   <p>Learn how to move and transform tape transfer elements in Photoshop for your fashion design projects.</p>
   
-<!-- ARTIST INSPIRATION SECTION -->
-<h2>Artist Inspiration: Contemporary Transfer Techniques</h2>
+  <!-- ARTIST INSPIRATION SECTION -->
+  <h2>Artist Inspiration: Contemporary Transfer Techniques</h2>
 
-<div class="inspiration-gallery">
-  <div class="inspiration-item">
-    <a href="https://museemagazine.com/culture/2025/10/21/robert-rauschenberg-life-cant-be-stopped-guggenheim" target="_blank">
-      <img class="inspiration-image" src="rauschenberg-transfer.jpg" alt="Robert Rauschenberg solvent transfer prints" />
-    </a>
-    <div class="inspiration-caption">Robert Rauschenberg, Cot, 1980. Solvent transfer</div>
+  <div class="inspiration-gallery">
+    <div class="inspiration-item">
+      <a href="https://museemagazine.com/culture/2025/10/21/robert-rauschenberg-life-cant-be-stopped-guggenheim" target="_blank">
+        <img class="inspiration-image" src="rauschenberg-transfer.jpg" alt="Robert Rauschenberg solvent transfer prints" />
+      </a>
+      <div class="inspiration-caption">Robert Rauschenberg, Cot, 1980. Solvent transfer</div>
+    </div>
+    
+    <div class="inspiration-item">
+      <a href="https://www.culturetype.com/2020/03/11/marian-goodman-gallery-announced-its-representation-tavares-strachan-whose-practice-activates-art-science-and-politics/" target="_blank">
+        <img class="inspiration-image" src="strachan-transfer.jpg" alt="Tavares Strachan transfer art" />
+      </a>
+      <div class="inspiration-caption">Tavares Strachan, "Four Hundred Meter Dash", 2018.</div>
+    </div>
+    
+    <div class="inspiration-item">
+      <a href="https://www.standardoslo.no/artists/30-tauba-auerbach/works/10875-tauba-auerbach-org-2023/" target="_blank">
+        <img class="inspiration-image" src="auerbach-transfer.jpg" alt="Tauba Auerbach transfer techniques" />
+      </a>
+      <div class="inspiration-caption">Tauba Auerbach, Org, 2023.</div>
+    </div>
   </div>
-  
-  <div class="inspiration-item">
-    <a href="https://www.culturetype.com/2020/03/11/marian-goodman-gallery-announced-its-representation-tavares-strachan-whose-practice-activates-art-science-and-politics/" target="_blank">
-      <img class="inspiration-image" src="strachan-transfer.jpg" alt="Tavares Strachan transfer art" />
-    </a>
-    <div class="inspiration-caption">Tavares Strachan, "Four Hundred Meter Dash", 2018.</div>
-  </div>
-  
-  <div class="inspiration-item">
-    <a href="https://www.standardoslo.no/artists/30-tauba-auerbach/works/10875-tauba-auerbach-org-2023/" target="_blank">
-      <img class="inspiration-image" src="auerbach-transfer.jpg" alt="Tauba Auerbach transfer techniques" />
-    </a>
-    <div class="inspiration-caption">Tauba Auerbach, Org, 2023.</div>
-  </div>
-</div>
 
-<div class="citation-reminder">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4NTY0MDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDh2NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNmguMDEiPjwvcGF0aD48L3N2Zz4=" />
-  <div>
-    <strong>Important:</strong> These contemporary artists use transfer techniques in their practice. Research and reference their work properly if it influences your design.
+  <div class="citation-reminder">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4NTY0MDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDh2NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNmguMDEiPjwvcGF0aD48L3N2Zz4=" />
+    <div>
+      <strong>Important:</strong> These contemporary artists use transfer techniques in their practice. Research and reference their work properly if it influences your design.
+    </div>
   </div>
-</div>
   
   <!-- VIDEO TUTORIAL SECTION -->
   <div class="video-tutorial">
@@ -629,8 +675,6 @@
             <div class="step-content">
               <p>Draw selection around element</p>
               <img class="step-image" src="draw-selection.jpg" alt="Draw selection" />
-          </div>
-         </div>
             </div>
           </div>
           
@@ -639,7 +683,6 @@
             <div class="step-content">
               <p>Drag selection to new position</p>
               <img class="step-image" src="drag-to-position.jpg" alt="Drag to new position" />
-           </div>
             </div>
           </div>
           
@@ -648,6 +691,7 @@
             <div class="step-content">
               <p>Photoshop blends the background</p>
               <img class="step-image" src="photoshop-blend-background.jpg" alt="Photoshop blends background" />
+            </div>
           </div>
         </div>
         
@@ -818,7 +862,7 @@
             <div class="tool-header" style="background: #ea37a3;">Multiply</div>
             <div class="tool-steps">
               <p>Darkens and blends with background</p>
-              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMzAwIDEwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2UwZTBlMCIvPjxyZWN0IHg9IjgwIiB5PSI0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjUiLz48dGV4dCB4PSIxNTAiIHk9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMzMzMiPkJlc3QgZm9yIHRhcGUgdHJhbnNmZXJzPC90ZXh0PjwvZz48L3N2Zz4=" alt="Multiply Blend Mode" />
+              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMzAwIDEwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2UwZTBlMCIvPjxyZWN0IHg9IjgwIiB5PSI0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjUiLz48dGV4dCB4PSIxNTAiIHk9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMzMzMiPkJlc3QgZm9yIHRhcGUgdHJhbnNmZXJzPC90ZXh0Pjwvc3ZnPg==" alt="Multiply Blend Mode" />
               <div style="text-align: center; margin-top: 10px;">
                 <span class="shortcut">Opacity: 60-80%</span>
               </div>
@@ -829,7 +873,7 @@
             <div class="tool-header" style="background: #ea37a3;">Overlay</div>
             <div class="tool-steps">
               <p>Enhances contrast and highlights</p>
-              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMzAwIDEwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2UwZTBlMCIvPjxyZWN0IHg9IjgwIiB5PSI0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjciIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogb3ZlcmxheTsiLz48dGV4dCB4PSIxNTAiIHk9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMzMzMiPkZvciBzdHJvbmdlciB0ZXh0dXJlczwvdGV4dD48L2c+PC9zdmc+" alt="Overlay Blend Mode" />
+              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMzAwIDEwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2UwZTBlMCIvPjxyZWN0IHg9IjgwIiB5PSI0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjciIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogb3ZlcmxheTsiLz48dGV4dCB4PSIxNTAiIHk9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMzMzMiPkZvciBzdHJvbmdlciB0ZXh0dXJlczwvdGV4dD48L3N2Zz4=" alt="Overlay Blend Mode" />
               <div style="text-align: center; margin-top: 10px;">
                 <span class="shortcut">Opacity: 30-50%</span>
               </div>
@@ -840,7 +884,7 @@
             <div class="tool-header" style="background: #ea37a3;">Screen</div>
             <div class="tool-steps">
               <p>Lightens elements on dark backgrounds</p>
-              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMzAwIDEwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzU1NTU1NSIvPjxyZWN0IHg9IjgwIiB5PSI0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjYiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogc2NyZWVuOyIvPjx0ZXh0IHg9IjE1MCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzMzMyI+Rm9yIGxpZ2h0ZXIgZWxlbWVudHM8L3RleHQ+PC9nPjwvc3ZnPg==" alt="Screen Blend Mode" />
+              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMzAwIDEwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzU1NTU1NSIvPjxyZWN0IHg9IjgwIiB5PSI0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjYiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogc2NyZWVuOyIvPjx0ZXh0IHg9IjE1MCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzMzMyI+Rm9yIGxpZ2h0ZXIgZWxlbWVudHM8L3RleHQ+PC9zdmc+" alt="Screen Blend Mode" />
               <div style="text-align: center; margin-top: 10px;">
                 <span class="shortcut">Opacity: 40-60%</span>
               </div>
@@ -851,7 +895,7 @@
             <div class="tool-header" style="background: #ea37a3;">Soft Light</div>
             <div class="tool-steps">
               <p>Gentle enhancement of textures</p>
-              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMzAwIDEwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2UwZTBlMCIvPjxyZWN0IHg9IjgwIiB5PSI0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjQiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogc29mdC1saWdodDsiLz48dGV4dCB4PSIxNTAiIHk9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMzMzMiPkZvciBzdWJ0bGUgZWZmZWN0czwvdGV4dD48L2c+PC9zdmc+" alt="Soft Light Blend Mode" />
+              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMzAwIDEwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2UwZTBlMCIvPjxyZWN0IHg9IjgwIiB5PSI0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjQiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogc29mdC1saWdodDsiLz48dGV4dCB4PSIxNTAiIHk9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMzMzMiPkZvciBzdWJ0bGUgZWZmZWN0czwvdGV4dD48L3N2Zz4=" alt="Soft Light Blend Mode" />
               <div style="text-align: center; margin-top: 10px;">
                 <span class="shortcut">Opacity: 40-70%</span>
               </div>
@@ -976,67 +1020,74 @@
     </div>
   </div>
   
-<!-- FINALIZING & SUBMISSION SECTION -->
-<h2>Finalizing & Submission to Padlet</h2>
+  <!-- FINALIZING & SUBMISSION SECTION -->
+  <h2>Finalizing & Submission to Padlet</h2>
 
-<div class="prep-box" style="background-color: var(--secondary-light);">
-  <h3 style="color: var(--secondary);">Before Submitting Your Work:</h3>
-  
-  <div class="prep-list">
-    <div class="prep-item">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTQgMkg2YTIgMiAwIDAgMC0yIDJ2MTZhMiAyIDAgMCAwIDIgMmgxMmEyIDIgMCAwIDAgMi0yVjgiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSIxNCAyIDE0IDggMjAgOCI+PC9wb2x5bGluZT48bGluZSB4MT0iMTYiIHkxPSIxMyIgeDI9IjgiIHkyPSIxMyI+PC9saW5lPjxsaW5lIHgxPSIxNiIgeTE9IjE3IiB4Mj0iOCIgeTI9IjE3Ij48L2xpbmU+PHBvbHlsaW5lIHBvaW50cz0iMTAgOSA5IDkgOCA5Ij48L3BvbHlsaW5lPjwvc3ZnPg==" />
-      <span>Check story connection</span>
-    </div>
-    <div class="prep-item">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI5IDExIDEyIDE0IDE2IDEwIj48L3BvbHlsaW5lPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIj48L2NpcmNsZT48L3N2Zz4=" />
-      <span>Review layout quality</span>
-    </div>
-    <div class="prep-item">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTkgMjFINWEyIDIgMCAwIDEtMi0yVjVhMiAyIDAgMCAxIDItMmgxMWw1IDV2MTFhMiAyIDAgMCAxLTIgMnoiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSIxNyAyMSAxNyAxMyA3IDEzIDcgMjEiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iNyAzIDcgOCAxNSA4Ij48L3BvbHlsaW5lPjwvc3ZnPg==" />
-      <span>Save as PSD first</span>
-    </div>
-    <div class="prep-item">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgMTV2NGEyIDIgMCAwIDEtMiAySDVhMiAyIDAgMCAxLTItMnYtNCI+PC9wYXRoPjxwb2x5bGluZSBwb2ludHM9IjcgMTAgMTIgMTUgMTcgMTAiPjwvcG9seWxpbmU+PGxpbmUgeDE9IjEyIiB5MT0iMTUiIHgyPSIxMiIgeTI9IjMiPjwvbGluZT48L3N2Zz4=" />
-      <span>Export as JPG</span>
+  <div class="prep-box" style="background-color: var(--secondary-light);">
+    <h3 style="color: var(--secondary);">Before Submitting Your Work:</h3>
+    
+    <div class="prep-list">
+      <div class="prep-item">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTQgMkg2YTIgMiAwIDAgMC0yIDJ2MTZhMiAyIDAgMCAwIDIgMmgxMmEyIDIgMCAwIDAgMi0yVjgiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSIxNCAyIDE0IDggMjAgOCI+PC9wb2x5bGluZT48bGluZSB4MT0iMTYiIHkxPSIxMyIgeDI9IjgiIHkyPSIxMyI+PC9saW5lPjxsaW5lIHgxPSIxNiIgeTE9IjE3IiB4Mj0iOCIgeTI9IjE3Ij48L2xpbmU+PHBvbHlsaW5lIHBvaW50cz0iMTAgOSA5IDkgOCA5Ij48L3BvbHlsaW5lPjwvc3ZnPg==" />
+        <span>Check story connection</span>
+      </div>
+      <div class="prep-item">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI5IDExIDEyIDE0IDE2IDEwIj48L3BvbHlsaW5lPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIj48L2NpcmNsZT48L3N2Zz4=" />
+        <span>Review layout quality</span>
+      </div>
+      <div class="prep-item">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTkgMjFINWEyIDIgMCAwIDEtMi0yVjVhMiAyIDAgMCAxIDItMmgxMWw1IDV2MTFhMiAyIDAgMCAxLTIgMnoiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSIxNyAyMSAxNyAxMyA3IDEzIDcgMjEiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iNyAzIDcgOCAxNSA4Ij48L3BvbHlsaW5lPjwvc3ZnPg==" />
+        <span>Save as PSD first</span>
+      </div>
+      <div class="prep-item">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgMTV2NGEyIDIgMCAwIDEtMiAySDVhMiAyIDAgMCAxLTItMnYtNCI+PC9wYXRoPjxwb2x5bGluZSBwb2ludHM9IjcgMTAgMTIgMTUgMTcgMTAiPjwvcG9seWxpbmU+PGxpbmUgeDE9IjEyIiB5MT0iMTUiIHgyPSIxMiIgeTI9IjMiPjwvbGluZT48L3N2Zz4=" />
+        <span>Export as JPG</span>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- SUBMISSION SECTION -->
-<div style="margin-top: 30px; border: 2px solid var(--primary); border-radius: 10px; padding: 20px; background-color: var(--primary-light);">
-  <h3 style="color: var(--primary); margin-top: 0;">Submitting to Padlet</h3>
-  
-  <p><strong>All students must upload evidence of their work to the course Padlet board.</strong></p>
-  
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-    <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-      <h4 style="margin-top: 0; color: var(--secondary);">Task 1: Screenshot</h4>
-      <p>Upload a screenshot showing your graphic elements and techniques we've been practicing.</p>
+  <!-- SUBMISSION SECTION -->
+  <div style="margin-top: 30px; border: 2px solid var(--primary); border-radius: 10px; padding: 20px; background-color: var(--primary-light);">
+    <h3 style="color: var(--primary); margin-top: 0;">Submitting to Padlet</h3>
+    
+    <p><strong>All students must upload evidence of their work to the course Padlet board.</strong></p>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+      <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <h4 style="margin-top: 0; color: var(--secondary);">Task 1: Screenshot</h4>
+        <p>Upload a screenshot showing your graphic elements and techniques we've been practicing.</p>
+      </div>
+      
+      <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <h4 style="margin-top: 0; color: var(--secondary);">Task 2: JPG Format</h4>
+        <p>Include your work as part of an A3 design sheet with good layout, font choices, and spacing.</p>
+      </div>
     </div>
     
-    <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-      <h4 style="margin-top: 0; color: var(--secondary);">Task 2: JPG Format</h4>
-      <p>Include your work as part of an A3 design sheet with good layout, font choices, and spacing.</p>
+    <div class="citation-reminder" style="margin-top: 20px;">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4NTY0MDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDh2NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNmguMDEiPjwvcGF0aD48L3N2Zz4=" />
+      <div>
+        <strong>Remember:</strong> Add Harvard references underneath any images that aren't your own in your final portfolio.
+      </div>
     </div>
+    
+    <a href="https://artslondon.padlet.org/hstokes12/week-1-term-2-as18keb970kmh0re" target="_blank" style="display: block; text-align: center; margin-top: 20px; padding: 12px 20px; background-color: var(--primary); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: all 0.3s ease;">
+      Access Submission Padlet Board
+    </a>
   </div>
-  
-  <div class="citation-reminder" style="margin-top: 20px;">
-    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4NTY0MDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDh2NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNmguMDEiPjwvcGF0aD48L3N2Zz4=" />
-    <div>
-      <strong>Remember:</strong> Add Harvard references underneath any images that aren't your own in your final portfolio.
-    </div>
-  </div>
-  
-  <a href="https://artslondon.padlet.org/hstokes12/week-1-term-2-as18keb970kmh0re" target="_blank" style="display: block; text-align: center; margin-top: 20px; padding: 12px 20px; background-color: var(--primary); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: all 0.3s ease;">
-    Access Submission Padlet Board
-  </a>
-</div>
 
-<!-- CLASS GALLERY SECTION -->
-<div style="margin-top: 30px;">
-  <h3>Class Gallery & Submission Board</h3>
-  <div style="padding:8px 0; border-radius: 12px; overflow:hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 15px 0;">
-    <iframe src="https://artslondon.padlet.org/hstokes12/week-1-term-2-as18keb970kmh0re" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:500px"></iframe>
+  <!-- CLASS GALLERY SECTION -->
+  <div style="margin-top: 30px;">
+    <h3>Class Gallery & Submission Board</h3>
+    <div style="padding:8px 0; border-radius: 12px; overflow:hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 15px 0;">
+      <iframe src="https://artslondon.padlet.org/hstokes12/week-1-term-2-as18keb970kmh0re" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:500px"></iframe>
+    </div>
+  </div>
+  
+  <!-- Modal for image viewing -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
   </div>
 </div>
 
@@ -1183,6 +1234,32 @@
       }
       
       quizFeedback.style.display = "block";
+    });
+    
+    // Image Modal Functionality
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementsByClassName('close')[0];
+    const images = document.querySelectorAll('.tool-image, .step-image, .inspiration-image');
+    
+    // Open modal when clicking on images
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      });
+    });
+    
+    // Close modal when clicking the × symbol
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = "none";
+    });
+    
+    // Close modal when clicking outside the image
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
     });
   });
 </script>
