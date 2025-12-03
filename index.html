@@ -571,6 +571,94 @@
       margin-right: 10px;
       margin-top: 3px;
     }
+    
+    /* Step by step instructions */
+    .instruction-container {
+      margin: 25px 0;
+    }
+    
+    .instruction-steps {
+      display: none;
+    }
+    
+    .instruction-steps.active {
+      display: block;
+    }
+    
+    .step-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    
+    .nav-button {
+      background-color: var(--secondary);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "Typewriter Condensed", "Courier New", monospace;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .nav-button:hover {
+      background-color: #076b6b;
+    }
+    
+    .nav-button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    
+    .step-indicator {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 10px;
+    }
+    
+    .step-dot {
+      width: 12px;
+      height: 12px;
+      background-color: #ddd;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .step-dot.active {
+      background-color: var(--primary);
+    }
+    
+    .instruction-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .instruction-number {
+      background-color: var(--primary);
+      color: white;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+    
+    .instruction-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--secondary);
+    }
   </style>
 </head>
 <body>
@@ -672,371 +760,402 @@
     </div>
   </div>
   
-  <!-- TOOL SECTION 1: CONTENT-AWARE MOVE -->
-  <h2>Content-Aware Move Tool</h2>
-  
-  <div class="tool-grid">
-    <div class="tool-card">
-      <div class="tool-header">
-        <div class="tool-icon">
-          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI1IDkgMiAxMiA1IDE1Ij48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjkgNSAxMiAyIDE1IDUiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMTUgMTkgMTIgMjIgOSAxOSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIxOSA5IDIyIDEyIDE5IDE1Ij48L3BvbHlsaW5lPjxsaW5lIHgxPSIyIiB5MT0iMTIiIHgyPSIyMiIgeTI9IjEyIj48L2xpbmU+PGxpbmUgeDE9IjEyIiB5MT0iMiIgeDI9IjEyIiB5Mj0iMjIiPjwvbGluZT48L3N2Zz4=" />
-        </div>
-        <span>How to Move Elements</span>
+  <!-- STEP BY STEP INSTRUCTIONS FOR DIGITAL MANIPULATION -->
+  <div class="instruction-container">
+    <h2>Step-by-Step: Digital Manipulation of Tape Transfers</h2>
+    
+    <!-- Step 1 -->
+    <div class="instruction-steps active" id="step-1">
+      <div class="instruction-header">
+        <div class="instruction-number">1</div>
+        <div class="instruction-title">Content-Aware Move Tool</div>
       </div>
       
-      <div class="tool-steps">
-        <p>Move tape transfer elements to new positions while Photoshop automatically fills the background:</p>
-        
-        <div class="steps-grid">
-          <div class="step-box">
-            <div class="step-number">Step 1</div>
-            <div class="step-content">
-              <p>Select Content-Aware Move tool (<span class="shortcut">J</span> key)</p>
-              <img class="step-image" src="content-aware-move-tool.jpg" alt="Select Content-Aware Move tool" />
-            </div>
-          </div>
-          
-          <div class="step-box">
-            <div class="step-number">Step 2</div>
-            <div class="step-content">
-              <p>Draw selection around element</p>
-              <img class="step-image" src="draw-selection.jpg" alt="Draw selection" />
-            </div>
-          </div>
-          
-          <div class="step-box">
-            <div class="step-number">Step 3</div>
-            <div class="step-content">
-              <p>Drag selection to new position</p>
-              <img class="step-image" src="drag-to-position.jpg" alt="Drag to new position" />
-            </div>
-          </div>
-          
-          <div class="step-box">
-            <div class="step-number">Step 4</div>
-            <div class="step-content">
-              <p>Photoshop blends the background</p>
-              <img class="step-image" src="photoshop-blend-background.jpg" alt="Photoshop blends background" />
-            </div>
+      <p>The Content-Aware Move tool lets you reposition elements while automatically filling the background:</p>
+      
+      <div class="steps-grid">
+        <div class="step-box">
+          <div class="step-number">First</div>
+          <div class="step-content">
+            <p>Select Content-Aware Move tool (<span class="shortcut">J</span> key)</p>
+            <img class="step-image" src="content-aware-move-tool.jpg" alt="Select Content-Aware Move tool" />
           </div>
         </div>
         
-        <!-- VIDEO TUTORIAL SECTION -->
-        <div class="video-tutorial">
-          <div class="video-caption">Content-Aware Move Tool Tutorial</div>
-          <div class="video-wrapper">
-            <!-- Panopto video embed code -->
-            <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=505318ca-dfd2-42f0-b56d-b39900a14563" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="step-box">
+          <div class="step-number">Then</div>
+          <div class="step-content">
+            <p>Draw selection around element</p>
+            <img class="step-image" src="draw-selection.jpg" alt="Draw selection" />
+          </div>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">Next</div>
+          <div class="step-content">
+            <p>Drag selection to new position</p>
+            <img class="step-image" src="drag-to-position.jpg" alt="Drag to new position" />
+          </div>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">Finally</div>
+          <div class="step-content">
+            <p>Photoshop blends the background</p>
+            <img class="step-image" src="photoshop-blend-background.jpg" alt="Photoshop blends background" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="video-tutorial">
+        <div class="video-caption">Content-Aware Move Tool Tutorial</div>
+        <div class="video-wrapper">
+          <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=505318ca-dfd2-42f0-b56d-b39900a14563" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Step 2 -->
+    <div class="instruction-steps" id="step-2">
+      <div class="instruction-header">
+        <div class="instruction-number">2</div>
+        <div class="instruction-title">Selection Tools for Fashion Elements</div>
+      </div>
+      
+      <p>Use these selection tools to isolate specific parts of your tape transfers:</p>
+      
+      <div class="tool-grid">
+        <div class="tool-card">
+          <div class="tool-header" style="background: #ea37a3;">Polygonal Lasso Tool</div>
+          <div class="tool-steps">
+            <p>For selecting straight-edge shapes:</p>
+            <ol>
+              <li>Press <span class="shortcut">L</span> key</li>
+              <li>Click points around object</li>
+              <li>Connect back to start</li>
+              <li>Copy: <span class="shortcut">Cmd/Ctrl+C</span></li>
+              <li>Paste: <span class="shortcut">Cmd/Ctrl+V</span></li>
+            </ol>
+            <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cG9seWdvbiBwb2ludHM9IjEwMCw1MCAxNTAsNzUgMjAwLDUwIDIwMCwxNTAgMTUwLDEyNSAxMDAsMTUwIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNSw1Ii8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iNTAiIHI9IjQiIGZpbGw9IiNlYTM3YTMiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSI3NSIgcj0iNCIgZmlsbD0iI2VhMzdhMyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTI1IiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PC9zdmc+" alt="Polygonal Lasso Tool" />
+          </div>
+        </div>
+        
+        <div class="tool-card">
+          <div class="tool-header" style="background: #ea37a3;">Magic Wand Tool</div>
+          <div class="tool-steps">
+            <p>For selecting similar colored areas:</p>
+            <ol>
+              <li>Press <span class="shortcut">W</span> key</li>
+              <li>Set Tolerance (20-40)</li>
+              <li>Click on area to select</li>
+              <li><span class="shortcut">Shift+Click</span> to add</li>
+              <li><span class="shortcut">Alt/Option+Click</span> to subtract</li>
+            </ol>
+            <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI3NSIgeT0iNTAiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0iI2VhMzdhMyIgb3BhY2l0eT0iMC4zIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNCIgZmlsbD0iI2VhMzdhMyIvPjwvc3ZnPg==" alt="Magic Wand Tool" />
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <div class="tool-card">
+          <div class="tool-header" style="background: #ea37a3;">Remember to Deselect</div>
+          <div class="tool-steps">
+            <p>Always deselect when finished:</p>
+            <div style="text-align: center; margin: 20px 0;">
+              <span class="shortcut" style="font-size: 1.2rem; padding: 10px 15px;">Cmd/Ctrl+D</span>
+            </div>
+            <p>This removes the "marching ants" selection outline</p>
+            <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxsaW5lIHgxPSIxMTAiIHkxPSIxMDAiIHgyPSIxOTAiIHkyPSIxMDAiIHN0cm9rZT0iI2VhMzdhMyIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjE1MCIgeTE9IjYwIiB4Mj0iMTUwIiB5Mj0iMTQwIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==" alt="Deselect" />
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  <!-- TOOL SECTION 2: SELECTION TECHNIQUES -->
-  <h2>Selection Tools for Fashion Elements</h2>
-  
-  <div class="tool-grid">
-    <div class="tool-card">
-      <div class="tool-header">
-        <div class="tool-icon">
-          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWdvbiBwb2ludHM9IjEyIDIgMTkuNTYgNS4zMiAxOS41NiAxNS42OCAxMiAxOSA0LjQ0IDE1LjY4IDQuNDQgNS4zMiAxMiAyIj48L3BvbHlnb24+PC9zdmc+" />
-        </div>
-        <span>Best Selection Tools</span>
+    
+    <!-- Step 3 -->
+    <div class="instruction-steps" id="step-3">
+      <div class="instruction-header">
+        <div class="instruction-number">3</div>
+        <div class="instruction-title">Content-Aware Fill for Backgrounds</div>
       </div>
       
-      <div class="tool-steps">
-        <div class="tool-grid">
-          <div class="tool-card">
-            <div class="tool-header" style="background: #ea37a3;">Polygonal Lasso Tool</div>
-            <div class="tool-steps">
-              <p>For selecting straight-edge shapes:</p>
-              <ol>
-                <li>Press <span class="shortcut">L</span> key</li>
-                <li>Click points around object</li>
-                <li>Connect back to start</li>
-                <li>Copy: <span class="shortcut">Cmd/Ctrl+C</span></li>
-                <li>Paste: <span class="shortcut">Cmd/Ctrl+V</span></li>
-              </ol>
-              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cG9seWdvbiBwb2ludHM9IjEwMCw1MCAxNTAsNzUgMjAwLDUwIDIwMCwxNTAgMTUwLDEyNSAxMDAsMTUwIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNSw1Ii8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iNTAiIHI9IjQiIGZpbGw9IiNlYTM3YTMiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSI3NSIgcj0iNCIgZmlsbD0iI2VhMzdhMyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTI1IiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PC9zdmc+" alt="Polygonal Lasso Tool" />
-            </div>
+      <p>Content-Aware Fill helps remove unwanted elements or fill empty areas:</p>
+      
+      <div class="steps-grid">
+        <div class="step-box">
+          <div class="step-number">Step 1</div>
+          <div class="step-content">
+            <p>Select area to fill using Magic Wand (<span class="shortcut">W</span>)</p>
+            <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjwvc3ZnPg==" alt="Select area to fill" />
           </div>
-          
-          <div class="tool-card">
-            <div class="tool-header" style="background: #ea37a3;">Magic Wand Tool</div>
-            <div class="tool-steps">
-              <p>For selecting similar colored areas:</p>
-              <ol>
-                <li>Press <span class="shortcut">W</span> key</li>
-                <li>Set Tolerance (20-40)</li>
-                <li>Click on area to select</li>
-                <li><span class="shortcut">Shift+Click</span> to add</li>
-                <li><span class="shortcut">Alt/Option+Click</span> to subtract</li>
-              </ol>
-              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI3NSIgeT0iNTAiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0iI2VhMzdhMyIgb3BhY2l0eT0iMC4zIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNCIgZmlsbD0iI2VhMzdhMyIvPjwvc3ZnPg==" alt="Magic Wand Tool" />
-            </div>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">Step 2</div>
+          <div class="step-content">
+            <p>Go to <span class="shortcut">Edit → Content-Aware Fill</span></p>
+            <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMzAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2RkZCIvPjx0ZXh0IHg9IjcwIiB5PSI0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjMzMzIj5FZGl0PC90ZXh0Pjx0ZXh0IHg9IjExNSIgeT0iNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+PjwvdGV4dD48dGV4dCB4PSIxMzAiIHk9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMwYTgwODAiPkNvbnRlbnQtQXdhcmUgRmlsbDwvdGV4dD48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjwvc3ZnPg==" alt="Open Content-Aware Fill dialog" />
           </div>
-          
-          <div class="tool-card">
-            <div class="tool-header" style="background: #ea37a3;">Remove Background Tool</div>
-            <div class="tool-steps">
-              <p>For quick element isolation:</p>
-              <ol>
-                <li>Select your layer</li>
-                <li>Click "Remove Background" in toolbar</li>
-                <li>Photoshop uses AI to isolate element</li>
-                <li>Fine-tune if needed</li>
-              </ol>
-              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PHBhdGggZD0iTTEyNSw3NSBMMTc1LDc1IEwxNzUsMTI1IEwxMjUsMTI1IFoiIGZpbGw9IiNlYTM3YTMiIG9wYWNpdHk9IjAuMyIvPjxyZWN0IHg9IjEyNSIgeT0iNzUiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiLz48dGV4dCB4PSIxNTAiIHk9IjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMzMzMiPlJlbW92ZSBCYWNrZ3JvdW5kPC90ZXh0PjxwYXRoIGQ9Ik0xNTAsMzUgTDE1MCw0NSIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=" alt="Remove Background Tool" />
-            </div>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">Step 3</div>
+          <div class="step-content">
+            <p>Adjust sampling area with brush if needed</p>
+            <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTYwIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNkZGQiLz48cmVjdCB4PSI0MCIgeT0iNDAiIHdpZHRoPSIyMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiMwYTgwODAiIG9wYWNpdHk9IjAuMyIvPjxyZWN0IHg9IjIxMCIgeT0iNDAiIHdpZHRoPSI1MCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiNmZmYiLz48dGV4dCB4PSIyMzUiIHk9IjcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzMzMiPlNhbXBsZTwvdGV4dD48dGV4dCB4PSIyMzUiIHk9Ijg1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzMzMiPkFyZWE8L3RleHQ+PC9zdmc+" alt="Adjust sampling area" />
           </div>
-          
-          <div class="tool-card">
-            <div class="tool-header" style="background: #ea37a3;">Remember to Deselect</div>
-            <div class="tool-steps">
-              <p>Always deselect when finished:</p>
-              <div style="text-align: center; margin: 20px 0;">
-                <span class="shortcut" style="font-size: 1.2rem; padding: 10px 15px;">Cmd/Ctrl+D</span>
-              </div>
-              <p>This removes the "marching ants" selection outline</p>
-              <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxsaW5lIHgxPSIxMTAiIHkxPSIxMDAiIHgyPSIxOTAiIHkyPSIxMDAiIHN0cm9rZT0iI2VhMzdhMyIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjE1MCIgeTE9IjYwIiB4Mj0iMTUwIiB5Mj0iMTQwIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==" alt="Deselect" />
-            </div>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">Step 4</div>
+          <div class="step-content">
+            <p>Click "OK" to apply the fill</p>
+            <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0iI2UwZTBlMCIvPjwvc3ZnPg==" alt="Final result with area filled" />
           </div>
+        </div>
+      </div>
+      
+      <div class="video-tutorial">
+        <div class="video-caption">Content-Aware Fill Tutorial</div>
+        <div class="video-wrapper">
+          <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b3839b74-5113-4c3f-9929-b37d00a206ba" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
-  </div>
-        
-  <!-- TOOL SECTION 3: CONTENT-AWARE FILL -->
-  <h2>Content-Aware Fill for Backgrounds</h2>
-  
-  <div class="tool-grid">
-    <div class="tool-card">
-      <div class="tool-header">
-        <div class="tool-icon">
-          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cmVjdCB4PSI5IiB5PSI5IiB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHJ4PSIyIiByeT0iMiI+PC9yZWN0PjxwYXRoIGQ9Ik01IDVWMmEyIDIgMCAwIDEgMi0yaDNoNWEyIDIgMCAwIDEgMiAydjVhMiAyIDAgMCAxLTIgMkgxMCI+PC9wYXRoPjwvc3ZnPg==" />
-        </div>
-        <span>Filling Empty Areas</span>
+    
+    <!-- Step 4 -->
+    <div class="instruction-steps" id="step-4">
+      <div class="instruction-header">
+        <div class="instruction-number">4</div>
+        <div class="instruction-title">Patch Tool for Repairing and Blending</div>
       </div>
       
-      <div class="tool-steps">
-        <p>Content-Aware Fill helps remove unwanted elements or fill empty areas:</p>
-        
-        <div class="steps-grid">
-          <div class="step-box">
-            <div class="step-number">Step 1</div>
-            <div class="step-content">
-              <p>Select area to fill using Magic Wand (<span class="shortcut">W</span>)</p>
-              <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjwvc3ZnPg==" alt="Select area to fill" />
-            </div>
-          </div>
-          
-          <div class="step-box">
-            <div class="step-number">Step 2</div>
-            <div class="step-content">
-              <p>Go to <span class="shortcut">Edit → Content-Aware Fill</span></p>
-              <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMzAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2RkZCIvPjx0ZXh0IHg9IjcwIiB5PSI0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjMzMzIj5FZGl0PC90ZXh0Pjx0ZXh0IHg9IjExNSIgeT0iNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+PjwvdGV4dD48dGV4dCB4PSIxMzAiIHk9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMwYTgwODAiPkNvbnRlbnQtQXdhcmUgRmlsbDwvdGV4dD48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjwvc3ZnPg==" alt="Open Content-Aware Fill dialog" />
-            </div>
-          </div>
-          
-          <div class="step-box">
-            <div class="step-number">Step 3</div>
-            <div class="step-content">
-              <p>Adjust sampling area with brush if needed</p>
-              <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTYwIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNkZGQiLz48cmVjdCB4PSI0MCIgeT0iNDAiIHdpZHRoPSIyMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiMwYTgwODAiIG9wYWNpdHk9IjAuMyIvPjxyZWN0IHg9IjIxMCIgeT0iNDAiIHdpZHRoPSI1MCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiNmZmYiLz48dGV4dCB4PSIyMzUiIHk9IjcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzMzMiPlNhbXBsZTwvdGV4dD48dGV4dCB4PSIyMzUiIHk9Ijg1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzMzMiPkFyZWE8L3RleHQ+PC9zdmc+" alt="Adjust sampling area" />
-            </div>
-          </div>
-          
-          <div class="step-box">
-            <div class="step-number">Step 4</div>
-            <div class="step-content">
-              <p>Click "OK" to apply the fill</p>
-              <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0iI2UwZTBlMCIvPjwvc3ZnPg==" alt="Final result with area filled" />
-            </div>
+      <p>The Patch Tool is perfect for fixing rough edges in your tape transfers and creating smooth blends:</p>
+      
+      <div class="steps-grid">
+        <div class="step-box">
+          <div class="step-number">Step 1</div>
+          <div class="step-content">
+            <p>Select the Patch Tool (<span class="shortcut">J</span> key, then toggle through)</p>
+            <img class="step-image" src="patch-tool-select.jpg" alt="Select Patch Tool" />
           </div>
         </div>
         
-        <!-- VIDEO TUTORIAL SECTION -->
-        <div class="video-tutorial">
-          <div class="video-caption">Content-Aware Fill Tutorial</div>
-          <div class="video-wrapper">
-            <!-- Panopto video embed code -->
-            <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b3839b74-5113-4c3f-9929-b37d00a206ba" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="step-box">
+          <div class="step-number">Step 2</div>
+          <div class="step-content">
+            <p>Make sure "Source" is selected in the Options bar</p>
+            <p>Draw a selection around the area to fix (like a rough edge)</p>
+            <img class="step-image" src="patch-selection-draw.jpg" alt="Draw selection around area" />
           </div>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">Step 3</div>
+          <div class="step-content">
+            <p>Click and drag the selection to a good source area to sample from</p>
+            <img class="step-image" src="patch-drag-source.jpg" alt="Drag to good source area" />
+          </div>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">Step 4</div>
+          <div class="step-content">
+            <p>Release to blend the two areas seamlessly</p>
+            <img class="step-image" src="patch-result.jpg" alt="Seamlessly blended result" />
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 20px; padding: 15px; background-color: var(--secondary-light); border-radius: 8px;">
+        <h4 style="color: var(--secondary); margin-top: 0;">Uses for Fashion Design:</h4>
+        <ul style="margin-bottom: 0;">
+          <li><strong>Clean Edges:</strong> Fix rough edges of tape transfers</li>
+          <li><strong>Blend Textures:</strong> Create smooth transitions between textures</li>
+          <li><strong>Extend Patterns:</strong> Copy texture from one area to another</li>
+          <li><strong>Mix Elements:</strong> Combine pieces from different sources</li>
+        </ul>
+      </div>
+      
+      <div class="video-tutorial">
+        <div class="video-caption">Patch Tool Tutorial</div>
+        <div class="video-wrapper">
+          <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9abedd5a-4837-485a-a9c9-b39900fd9a97" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
-  </div>
+    
+    <!-- Step 5 -->
+    <div class="instruction-steps" id="step-5">
+      <div class="instruction-header">
+        <div class="instruction-number">5</div>
+        <div class="instruction-title">Blend Modes & Dodge Tool</div>
+      </div>
+      
+      <p>After moving elements, use blend modes to integrate tape transfers and add highlights:</p>
+     
+      <!-- Dodge Tool Section -->
+      <div style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px;">
+        <h3>Dodge Tool for Highlights</h3>
+        <p>Lighten specific areas of your tape transfer elements:</p>
+        <ol>
+          <li>Select the Dodge tool (<span class="shortcut">O</span> key)</li>
+          <li>Set Range to "Midtones" in the options bar</li>
+          <li>Use a soft brush at 20-30% Exposure</li>
+          <li>Paint over areas you want to lighten</li>
+        </ol>
+        <img class="tool-image" style="max-width: 300px; margin: 15px auto; display: block;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTUwIiB2aWV3Qm94PSIwIDAgMzAwIDE1MCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI3NSIgeT0iMjUiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iNzUiIHI9IjQwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjMiLz48Y2lyY2xlIGN4PSIxNzAiIGN5PSI2NSIgcj0iMTUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuNiIvPjxwYXRoIGQ9Ik0xNzAsNjUgTTE4NSw2NSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjIsMiIvPjxjaXJjbGUgY3g9IjE4NSIgY3k9IjY1IiByPSI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIvPjx0ZXh0IHg9IjIwMCIgeT0iNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzMzMyI+RG9kZ2UgVG9vbDwvdGV4dD48L3N2Zz4=" alt="Dodge Tool" />
+      </div>
+      
+      <div class="video-tutorial">
+        <div class="video-caption">Blending-modes Tutorial</div>
+        <div class="video-wrapper">
+          <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=37e1b91d-d690-4bd4-a15d-b39900b5af52" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Step 6 -->
+    <div class="instruction-steps" id="step-6">
+      <div class="instruction-header">
+        <div class="instruction-number">6</div>
+        <div class="instruction-title">Typography & Text Layout</div>
+      </div>
+      
+      <div class="typography-box">
+        <h3>Using Text with Your Fashion Elements</h3>
+        <p><strong>Aim:</strong> Make sure your text supports your images and feels professional and balanced.</p>
+        
+        <div class="font-sample">
+          <h4>Recommended Fonts:</h4>
+          
+          <div class="font-example andale-mono">
+            <p>Andale Mono - clean, technical look for fashion descriptions</p>
+          </div>
+          
+          <div class="font-example orator-std">
+            <p>Orator Std - balanced spacing, good for annotations</p>
+          </div>
+          
+          <div class="font-example grandview">
+            <p>Grandview Display - modern, works well for headings</p>
+          </div>
+          
+          <div class="font-example typewriter">
+            <p>Typewriter Condensed - nostalgic, works with collage styles</p>
+          </div>
+        </div>
+        
+        <ul>
+          <li>Keep the text size modest: 9 – 14 pt is usually enough for A3 print layouts.</li>
+          <li>Use consistent spacing and alignment – left‑aligned or lightly centered text often works best.</li>
+          <li>Avoid placing text directly over busy image areas – give it space or use a semi‑transparent shape behind it.</li>
+          <li>Avoid overly decorative or "playful" typefaces that compete with your imagery.</li>
+        </ul>
+        
+        <p><strong>Tip:</strong> Good text design shouldn't compete with your images — it should help tell the story, quietly.</p>
+      </div>
+    </div>
+    
+    <!-- Step 7 -->
+    <div class="instruction-steps" id="step-7">
+      <div class="instruction-header">
+        <div class="instruction-number">7</div>
+        <div class="instruction-title">Finalizing & Submission to Padlet</div>
+      </div>
+      
+      <div class="prep-box" style="background-color: var(--secondary-light);">
+        <h3 style="color: var(--secondary);">Before Submitting Your Work:</h3>
+        
+        <div class="prep-list">
+          <div class="prep-item">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTQgMkg2YTIgMiAwIDAgMC0yIDJ2MTZhMiAyIDAgMCAwIDIgMmgxMmEyIDIgMCAwIDAgMi0yVjgiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSIxNCAyIDE0IDggMjAgOCI+PC9wb2x5bGluZT48bGluZSB4MT0iMTYiIHkxPSIxMyIgeDI9IjgiIHkyPSIxMyI+PC9saW5lPjxsaW5lIHgxPSIxNiIgeTE9IjE3IiB4Mj0iOCIgeTI9IjE3Ij48L2xpbmU+PHBvbHlsaW5lIHBvaW50cz0iMTAgOSA5IDkgOCA5Ij48L3BvbHlsaW5lPjwvc3ZnPg==" />
+            <span>Check story connection</span>
+          </div>
+          <div class="prep-item">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI5IDExIDEyIDE0IDE2IDEwIj48L3BvbHlsaW5lPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIj48L2NpcmNsZT48L3N2Zz4=" />
+            <span>Review layout quality</span>
+          </div>
+          <div class="prep-item">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTkgMjFINWEyIDIgMCAwIDEtMi0yVjVhMiAyIDAgMCAxIDItMmgxMWw1IDV2MTFhMiAyIDAgMCAxLTIgMnoiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSIxNyAyMSAxNyAxMyA3IDEzIDcgMjEiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iNyAzIDcgOCAxNSA4Ij48L3BvbHlsaW5lPjwvc3ZnPg==" />
+            <span>Save as PSD first</span>
+          </div>
+          <div class="prep-item">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgMTV2NGEyIDIgMCAwIDEtMiAySDVhMiAyIDAgMCAxLTItMnYtNCI+PC9wYXRoPjxwb2x5bGluZSBwb2ludHM9IjcgMTAgMTIgMTUgMTcgMTAiPjwvcG9seWxpbmU+PGxpbmUgeDE9IjEyIiB5MT0iMTUiIHgyPSIxMiIgeTI9IjMiPjwvbGluZT48L3N2Zz4=" />
+            <span>Export as JPG</span>
+          </div>
+        </div>
+      </div>
 
-  <!-- TOOL SECTION: PATCH TOOL -->
-  <h2>Patch Tool for Repairing and Blending</h2>
-  
-  <div class="tool-grid">
-    <div class="tool-card">
-      <div class="tool-header">
-        <div class="tool-icon">
-          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTMgMTNsNS40IDAuNmw1LjQgLTMuNmwtMy42IC01LjRMMTkuNCAwbC0zLjYgNS40TDEzIDEzem0tMTAuNCAxMGw1LjQgLTMuNmwwLjYgLTUuNGw3LjggLTcuOEwxMyAwbC03LjggNy44TC4xIDEzLjZsLTMuNiA1LjRMMSAyMi42bC0xLjEgLTEuMnoiPjwvcGF0aD48L3N2Zz4=" />
+      <!-- SUBMISSION SECTION -->
+      <div style="margin-top: 30px; border: 2px solid var(--primary); border-radius: 10px; padding: 20px; background-color: var(--primary-light);">
+        <h3 style="color: var(--primary); margin-top: 0;">Submitting to Padlet</h3>
+        
+        <p><strong>All work must connect to your term two design project.</strong></p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+          <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <h4 style="margin-top: 0; color: var(--secondary);">Task 1: Tape Transfers</h4>
+            <p>Upload at least 3 tape transfer experiments:</p>
+            <ul>
+              <li>Use different tape materials (matte, clear, washi)</li>
+              <li>Show texture variations/ images</li>
+            </ul>
+          </div>
+          
+          <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <h4 style="margin-top: 0; color: var(--secondary);">Task 2: A3 Design Sheet</h4>
+            <p>Create an A3 design sheet showing:</p>
+            <ul>
+              <li>At least 2 Photoshop techniques learned today</li>
+              <li>Research connections like artist examples</li>
+              <li>Good typography choices</li>
+              <li>Clear connection to your term two project</li>
+            </ul>
+          </div>
         </div>
-        <span>Using the Patch Tool for Design Elements</span>
+        
+        <div class="citation-reminder" style="margin-top: 20px;">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4NTY0MDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDh2NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNmguMDEiPjwvcGF0aD48L3N2Zz4=" />
+          <div>
+            <strong>Remember:</strong> Add Harvard references for any inspiration images you use in your work.
+          </div>
+        </div>
+        
+        <a href="https://artslondon.padlet.org/hstokes12/week-1-term-2-as18keb970kmh0re" target="_blank" style="display: block; text-align: center; margin-top: 20px; padding: 12px 20px; background-color: var(--primary); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: all 0.3s ease;">
+          Access Submission Padlet Board
+        </a>
       </div>
       
-      <div class="tool-steps">
-        <p>The Patch Tool is perfect for fixing rough edges in your tape transfers and creating smooth blends:</p>
-        
-        <div class="steps-grid">
-          <div class="step-box">
-            <div class="step-number">Step 1</div>
-            <div class="step-content">
-              <p>Select the Patch Tool (<span class="shortcut">J</span> key, then toggle through)</p>
-              <img class="step-image" src="patch-tool-select.jpg" alt="Select Patch Tool" />
-            </div>
-          </div>
-          
-          <div class="step-box">
-            <div class="step-number">Step 2</div>
-            <div class="step-content">
-              <p>Make sure "Source" is selected in the Options bar</p>
-              <p>Draw a selection around the area to fix (like a rough edge)</p>
-              <img class="step-image" src="patch-selection-draw.jpg" alt="Draw selection around area" />
-            </div>
-          </div>
-          
-          <div class="step-box">
-            <div class="step-number">Step 3</div>
-            <div class="step-content">
-              <p>Click and drag the selection to a good source area to sample from</p>
-              <img class="step-image" src="patch-drag-source.jpg" alt="Drag to good source area" />
-            </div>
-          </div>
-          
-          <div class="step-box">
-            <div class="step-number">Step 4</div>
-            <div class="step-content">
-              <p>Release to blend the two areas seamlessly</p>
-              <img class="step-image" src="patch-result.jpg" alt="Seamlessly blended result" />
-            </div>
-          </div>
-        </div>
-        
-        <div style="margin-top: 20px; padding: 15px; background-color: var(--secondary-light); border-radius: 8px;">
-          <h4 style="color: var(--secondary); margin-top: 0;">Uses for Fashion Design:</h4>
-          <ul style="margin-bottom: 0;">
-            <li><strong>Clean Edges:</strong> Fix rough edges of tape transfers</li>
-            <li><strong>Blend Textures:</strong> Create smooth transitions between textures</li>
-            <li><strong>Extend Patterns:</strong> Copy texture from one area to another</li>
-            <li><strong>Mix Elements:</strong> Combine pieces from different sources</li>
-          </ul>
-        </div>
-        
-        <!-- Example inspired by Manita Songserm's work -->
-        <div style="margin-top: 20px; border: 2px solid var(--primary); border-radius: 8px; overflow: hidden;">
-          <div style="padding: 10px 15px; background-color: var(--primary); color: white; font-weight: bold;">
-            Design Example: Layered Style
-          </div>
-          <div style="padding: 15px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
-            <div style="flex: 1; min-width: 250px;">
-              <p>The Patch Tool helps create designs like the example image with smooth blends:</p>
-              <ul>
-                <li>Blend photos with transfer textures</li>
-                <li>Create smooth transitions between text and images</li>
-                <li>Fix imperfections while keeping artistic quality</li>
-                <li>Create layered effects like Tavares Strachan's work</li>
-              </ul>
-            </div>
-            <div style="flex: 1; min-width: 250px; text-align: center;">
-              <img src="patch-example.jpg" alt="Example of patch tool in fashion design" style="max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #ddd;" />
-              <p style="font-size: 0.9em; margin-top: 5px; color: #666;">Layering technique using the Patch tool</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- VIDEO TUTORIAL SECTION -->
-        <div class="video-tutorial">
-          <div class="video-caption">Patch Tool Tutorial</div>
-          <div class="video-wrapper">
-            <!-- Panopto video embed code -->
-            <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9abedd5a-4837-485a-a9c9-b39900fd9a97" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
+      <!-- CLASS GALLERY SECTION -->
+      <div style="margin-top: 30px;">
+        <h3>Class Gallery & Submission Board</h3>
+        <div style="padding:8px 0; border-radius: 12px; overflow:hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 15px 0;">
+          <iframe src="https://artslondon.padlet.org/hstokes12/week-1-term-2-as18keb970kmh0re" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:500px"></iframe>
         </div>
       </div>
     </div>
-  </div>
-  
-  <!-- TOOL SECTION 4: BLEND MODES -->
-  <h2>Blend Modes for Tape Transfers</h2>
-  
-  <div class="tool-grid">
-    <div class="tool-card">
-      <div class="tool-header">
-        <div class="tool-icon">
-          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTggMTQuNUExMi41IDEyLjUgMCAwIDAgMTYgOS41Ij48L3BhdGg+PHBhdGggZD0iTTE2IDkuNUExMi41IDEyLjUgMCAwIDEgOCAxNC41Ij48L3BhdGg+PC9zdmc+" />
-        </div>
-        <span>Blend Modes for Better Results</span>
-      </div>
-      
-      <div class="tool-steps">
-        <p>After moving elements, use these blend modes to integrate tape transfers:</p>
-       
-        <!-- Dodge Tool Section -->
-        <div style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px;">
-          <h3>Dodge Tool for Highlights</h3>
-          <p>Lighten specific areas of your tape transfer elements:</p>
-          <ol>
-            <li>Select the Dodge tool (<span class="shortcut">O</span> key)</li>
-            <li>Set Range to "Midtones" in the options bar</li>
-            <li>Use a soft brush at 20-30% Exposure</li>
-            <li>Paint over areas you want to lighten</li>
-          </ol>
-          <img class="tool-image" style="max-width: 300px; margin: 15px auto; display: block;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTUwIiB2aWV3Qm94PSIwIDAgMzAwIDE1MCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI3NSIgeT0iMjUiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iNzUiIHI9IjQwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjMiLz48Y2lyY2xlIGN4PSIxNzAiIGN5PSI2NSIgcj0iMTUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuNiIvPjxwYXRoIGQ9Ik0xNzAsNjUgTTE4NSw2NSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjIsMiIvPjxjaXJjbGUgY3g9IjE4NSIgY3k9IjY1IiByPSI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIvPjx0ZXh0IHg9IjIwMCIgeT0iNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzMzMyI+RG9kZ2UgVG9vbDwvdGV4dD48L3N2Zz4=" alt="Dodge Tool" />
-        </div>
-        
-        <!-- VIDEO TUTORIAL SECTION -->
-        <div class="video-tutorial">
-          <div class="video-caption">Blending-modes Tutorial</div>
-          <div class="video-wrapper">
-            <!-- Panopto video embed code -->
-            <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=37e1b91d-d690-4bd4-a15d-b39900b5af52" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TYPOGRAPHY SECTION -->
-  <h2>Typography & Text Layout</h2>
-  
-  <div class="typography-box">
-    <h3>Using Text with Your Fashion Elements</h3>
-    <p><strong>Aim:</strong> Make sure your text supports your images and feels professional and balanced.</p>
     
-    <div class="font-sample">
-      <h4>Recommended Fonts:</h4>
-      
-      <div class="font-example andale-mono">
-        <p>Andale Mono - clean, technical look for fashion descriptions</p>
-      </div>
-      
-      <div class="font-example orator-std">
-        <p>Orator Std - balanced spacing, good for annotations</p>
-      </div>
-      
-      <div class="font-example grandview">
-        <p>Grandview Display - modern, works well for headings</p>
-      </div>
-      
-      <div class="font-example typewriter">
-        <p>Typewriter Condensed - nostalgic, works with collage styles</p>
-      </div>
+    <!-- Step Navigation -->
+    <div class="step-navigation">
+      <button class="nav-button" id="prev-button" disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Previous
+      </button>
+      <button class="nav-button" id="next-button">
+        Next
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
     </div>
     
-    <ul>
-      <li>Keep the text size modest: 9 – 14 pt is usually enough for A3 print layouts.</li>
-      <li>Use consistent spacing and alignment – left‑aligned or lightly centered text often works best.</li>
-      <li>Avoid placing text directly over busy image areas – give it space or use a semi‑transparent shape behind it.</li>
-      <li>Avoid overly decorative or "playful" typefaces that compete with your imagery.</li>
-    </ul>
-    
-    <p><strong>Tip:</strong> Good text design shouldn't compete with your images — it should help tell the story, quietly.</p>
+    <div class="step-indicator">
+      <div class="step-dot active" data-step="1"></div>
+      <div class="step-dot" data-step="2"></div>
+      <div class="step-dot" data-step="3"></div>
+      <div class="step-dot" data-step="4"></div>
+      <div class="step-dot" data-step="5"></div>
+      <div class="step-dot" data-step="6"></div>
+      <div class="step-dot" data-step="7"></div>
+    </div>
   </div>
   
   <!-- QUIZ SECTION -->
@@ -1107,80 +1226,6 @@
     </div>
   </div>
   
-  <!-- FINALIZING & SUBMISSION SECTION -->
-  <h2>Finalizing & Submission to Padlet</h2>
-
-  <div class="prep-box" style="background-color: var(--secondary-light);">
-    <h3 style="color: var(--secondary);">Before Submitting Your Work:</h3>
-    
-    <div class="prep-list">
-      <div class="prep-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTQgMkg2YTIgMiAwIDAgMC0yIDJ2MTZhMiAyIDAgMCAwIDIgMmgxMmEyIDIgMCAwIDAgMi0yVjgiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSIxNCAyIDE0IDggMjAgOCI+PC9wb2x5bGluZT48bGluZSB4MT0iMTYiIHkxPSIxMyIgeDI9IjgiIHkyPSIxMyI+PC9saW5lPjxsaW5lIHgxPSIxNiIgeTE9IjE3IiB4Mj0iOCIgeTI9IjE3Ij48L2xpbmU+PHBvbHlsaW5lIHBvaW50cz0iMTAgOSA5IDkgOCA5Ij48L3BvbHlsaW5lPjwvc3ZnPg==" />
-        <span>Check story connection</span>
-      </div>
-      <div class="prep-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI5IDExIDEyIDE0IDE2IDEwIj48L3BvbHlsaW5lPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIj48L2NpcmNsZT48L3N2Zz4=" />
-        <span>Review layout quality</span>
-      </div>
-      <div class="prep-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTkgMjFINWEyIDIgMCAwIDEtMi0yVjVhMiAyIDAgMCAxIDItMmgxMWw1IDV2MTFhMiAyIDAgMCAxLTIgMnoiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSIxNyAyMSAxNyAxMyA3IDEzIDcgMjEiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iNyAzIDcgOCAxNSA4Ij48L3BvbHlsaW5lPjwvc3ZnPg==" />
-        <span>Save as PSD first</span>
-      </div>
-      <div class="prep-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYTgwODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgMTV2NGEyIDIgMCAwIDEtMiAySDVhMiAyIDAgMCAxLTItMnYtNCI+PC9wYXRoPjxwb2x5bGluZSBwb2ludHM9IjcgMTAgMTIgMTUgMTcgMTAiPjwvcG9seWxpbmU+PGxpbmUgeDE9IjEyIiB5MT0iMTUiIHgyPSIxMiIgeTI9IjMiPjwvbGluZT48L3N2Zz4=" />
-        <span>Export as JPG</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- SUBMISSION SECTION -->
-  <div style="margin-top: 30px; border: 2px solid var(--primary); border-radius: 10px; padding: 20px; background-color: var(--primary-light);">
-    <h3 style="color: var(--primary); margin-top: 0;">Submitting to Padlet</h3>
-    
-    <p><strong>All work must connect to your term two design project.</strong></p>
-    
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-      <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-        <h4 style="margin-top: 0; color: var(--secondary);">Task 1: Tape Transfers</h4>
-        <p>Upload at least 3 tape transfer experiments:</p>
-        <ul>
-          <li>Use different tape materials (matte, clear, washi)</li>
-          <li>Show texture variations/ images</li>
-        </ul>
-      </div>
-      
-      <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-        <h4 style="margin-top: 0; color: var(--secondary);">Task 2: A3 Design Sheet</h4>
-        <p>Create an A3 design sheet showing:</p>
-        <ul>
-          <li>At least 2 Photoshop techniques learned today</li>
-          <li>Research connections like artist examples</li>
-          <li>Good typography choices</li>
-          <li>Clear connection to your term two project</li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="citation-reminder" style="margin-top: 20px;">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4NTY0MDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDh2NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNmguMDEiPjwvcGF0aD48L3N2Zz4=" />
-      <div>
-        <strong>Remember:</strong> Add Harvard references for any inspiration images you use in your work.
-      </div>
-    </div>
-    
-    <a href="https://artslondon.padlet.org/hstokes12/week-1-term-2-as18keb970kmh0re" target="_blank" style="display: block; text-align: center; margin-top: 20px; padding: 12px 20px; background-color: var(--primary); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: all 0.3s ease;">
-      Access Submission Padlet Board
-    </a>
-  </div>
-
-  <!-- CLASS GALLERY SECTION -->
-  <div style="margin-top: 30px;">
-    <h3>Class Gallery & Submission Board</h3>
-    <div style="padding:8px 0; border-radius: 12px; overflow:hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 15px 0;">
-      <iframe src="https://artslondon.padlet.org/hstokes12/week-1-term-2-as18keb970kmh0re" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:500px"></iframe>
-    </div>
-  </div>
-  
   <!-- Modal for image viewing -->
   <div id="imageModal" class="modal">
     <span class="close">&times;</span>
@@ -1190,6 +1235,81 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Step-by-Step Navigation
+    const steps = document.querySelectorAll('.instruction-steps');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const stepDots = document.querySelectorAll('.step-dot');
+    let currentStep = 1;
+    const totalSteps = steps.length;
+    
+    function updateStepVisibility() {
+      steps.forEach((step, index) => {
+        if (index + 1 === currentStep) {
+          step.classList.add('active');
+        } else {
+          step.classList.remove('active');
+        }
+      });
+      
+      // Update navigation buttons
+      prevButton.disabled = currentStep === 1;
+      nextButton.disabled = currentStep === totalSteps;
+      
+      // Update step indicators
+      stepDots.forEach((dot, index) => {
+        if (index + 1 === currentStep) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+      
+      // Scroll to top of active step
+      const activeStep = document.querySelector('.instruction-steps.active');
+      if (activeStep) {
+        activeStep.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      
+      // Change Next button text on last step
+      if (currentStep === totalSteps) {
+        nextButton.innerHTML = `
+          Finish
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        `;
+      } else {
+        nextButton.innerHTML = `
+          Next
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        `;
+      }
+    }
+    
+    prevButton.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateStepVisibility();
+      }
+    });
+    
+    nextButton.addEventListener('click', () => {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        updateStepVisibility();
+      }
+    });
+    
+    // Click on step indicator dots
+    stepDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        currentStep = parseInt(dot.dataset.step);
+        updateStepVisibility();
+      });
+    });
+    
+    // Initialize step visibility
+    updateStepVisibility();
+  
     // Drag and Drop Functionality
     const draggables = document.querySelectorAll('.draggable');
     const dropZone = document.querySelector('.drop-zone');
