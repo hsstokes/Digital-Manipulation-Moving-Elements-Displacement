@@ -659,6 +659,66 @@
       font-weight: bold;
       color: var(--secondary);
     }
+    
+    /* Micro Learning Structure */
+    .micro-container {
+      border: 2px solid var(--primary);
+      border-radius: 10px;
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+    
+    .micro-header {
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .micro-content {
+      padding: 15px;
+      background-color: white;
+    }
+    
+    .micro-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 15px;
+      background-color: var(--primary-light);
+      border-top: 1px solid #eee;
+    }
+    
+    .module-nav {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+    
+    .module-dot {
+      width: 12px;
+      height: 12px;
+      background-color: #ddd;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .module-dot.active {
+      background-color: var(--primary);
+    }
+    
+    .module-title {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -668,359 +728,405 @@
   
   <p>Learn how to move and transform tape transfer elements in Photoshop for your fashion design projects.</p>
   
-  <!-- ARTIST INSPIRATION SECTION -->
-  <h2>Artist Inspiration: Contemporary Transfer Techniques</h2>
+  <!-- Module Navigation -->
+  <div class="module-nav">
+    <div class="module-dot active" data-module="inspiration"></div>
+    <div class="module-dot" data-module="preparation"></div>
+    <div class="module-dot" data-module="techniques"></div>
+    <div class="module-dot" data-module="typography"></div>
+    <div class="module-dot" data-module="submission"></div>
+    <div class="module-dot" data-module="quiz"></div>
+  </div>
+  
+  <div class="module-title">Artist Inspiration & Transfer Techniques</div>
+  
+  <!-- MODULE 1: ARTIST INSPIRATION -->
+  <div class="micro-container module-content" id="inspiration">
+    <div class="micro-header">
+      <span>1. Artist Inspiration: Contemporary Transfer Techniques</span>
+      <span>⭐ 5 min</span>
+    </div>
+    <div class="micro-content">
+      <div class="inspiration-gallery">
+        <div class="inspiration-item">
+          <a href="https://museemagazine.com/culture/2025/10/21/robert-rauschenberg-life-cant-be-stopped-guggenheim" target="_blank">
+            <img class="inspiration-image" src="rauschenberg-transfer.jpg" alt="Robert Rauschenberg solvent transfer prints" />
+          </a>
+          <div class="inspiration-caption">Robert Rauschenberg, Cot, 1980. Solvent transfer</div>
+        </div>
+        
+        <div class="inspiration-item">
+          <a href="https://www.culturetype.com/2020/03/11/marian-goodman-gallery-announced-its-representation-tavares-strachan-whose-practice-activates-art-science-and-politics/" target="_blank">
+            <img class="inspiration-image" src="strachan-transfer.jpg" alt="Tavares Strachan transfer art" />
+          </a>
+          <div class="inspiration-caption">Tavares Strachan, "Four Hundred Meter Dash", 2018.</div>
+        </div>
+        
+        <div class="inspiration-item">
+          <a href="https://www.standardoslo.no/artists/30-tauba-auerbach/works/10875-tauba-auerbach-org-2023/" target="_blank">
+            <img class="inspiration-image" src="auerbach-transfer.jpg" alt="Tauba Auerbach transfer techniques" />
+          </a>
+          <div class="inspiration-caption">Tauba Auerbach, Org, 2023.</div>
+        </div>
+      </div>
 
-  <div class="inspiration-gallery">
-    <div class="inspiration-item">
-      <a href="https://museemagazine.com/culture/2025/10/21/robert-rauschenberg-life-cant-be-stopped-guggenheim" target="_blank">
-        <img class="inspiration-image" src="rauschenberg-transfer.jpg" alt="Robert Rauschenberg solvent transfer prints" />
-      </a>
-      <div class="inspiration-caption">Robert Rauschenberg, Cot, 1980. Solvent transfer</div>
+      <div class="citation-reminder">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4NTY0MDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDh2NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNmguMDEiPjwvcGF0aD48L3N2Zz4=" />
+        <div>
+          <strong>Important:</strong> These contemporary artists use transfer techniques in their practice. Research and reference their work properly if it influences your design.
+        </div>
+      </div>
+      
+      <!-- Transfer Techniques for Term 2 Project -->
+      <div style="background-color: var(--primary-light); border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <h3 style="color: var(--primary); margin-top: 0;">Transfer Techniques for Your Term 2 Project</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+          <div style="background: white; padding: 15px; border-radius: 8px;">
+            <h4 style="color: var(--secondary); margin-top: 0;">Material Textures</h4>
+            <p>Create transfers that explore textures related to your term 2 project.</p>
+          </div>
+          
+          <div style="background: white; padding: 15px; border-radius: 8px;">
+            <h4 style="color: var(--secondary); margin-top: 0;">Layered Design</h4>
+            <p>Overlap transfers to create depth, similar to fabric layers in your designs.</p>
+          </div>
+          
+          <div style="background: white; padding: 15px; border-radius: 8px;">
+            <h4 style="color: var(--secondary); margin-top: 0;">Text Elements</h4>
+            <p>Add text that connects to your design story or concept.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <div class="inspiration-item">
-      <a href="https://www.culturetype.com/2020/03/11/marian-goodman-gallery-announced-its-representation-tavares-strachan-whose-practice-activates-art-science-and-politics/" target="_blank">
-        <img class="inspiration-image" src="strachan-transfer.jpg" alt="Tavares Strachan transfer art" />
-      </a>
-      <div class="inspiration-caption">Tavares Strachan, "Four Hundred Meter Dash", 2018.</div>
-    </div>
-    
-    <div class="inspiration-item">
-      <a href="https://www.standardoslo.no/artists/30-tauba-auerbach/works/10875-tauba-auerbach-org-2023/" target="_blank">
-        <img class="inspiration-image" src="auerbach-transfer.jpg" alt="Tauba Auerbach transfer techniques" />
-      </a>
-      <div class="inspiration-caption">Tauba Auerbach, Org, 2023.</div>
+    <div class="micro-footer">
+      <span></span>
+      <button class="nav-button next-module" data-next="preparation">
+        Next: Preparation
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
     </div>
   </div>
 
-  <div class="citation-reminder">
-    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4NTY0MDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDh2NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNmguMDEiPjwvcGF0aD48L3N2Zz4=" />
-    <div>
-      <strong>Important:</strong> These contemporary artists use transfer techniques in their practice. Research and reference their work properly if it influences your design.
+  <!-- MODULE 2: PREPARATION -->
+  <div class="micro-container module-content" id="preparation" style="display: none;">
+    <div class="micro-header">
+      <span>2. Before Class: Prepare Your Tape Transfers</span>
+      <span>⭐ 10 min</span>
     </div>
-  </div>
-  
-  <!-- TRANSFER TECHNIQUES FOR TERM 2 PROJECT -->
-  <div class="prep-box" style="background-color: var(--primary-light); margin-top: 25px;">
-    <h3>Transfer Techniques for Your Term 2 Project</h3>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
-      <div style="background: white; padding: 15px; border-radius: 8px;">
-        <h4 style="color: var(--secondary); margin-top: 0;">Material Textures</h4>
-        <p>Create transfers that explore textures related to your term 2 project.</p>
-      </div>
-      
-      <div style="background: white; padding: 15px; border-radius: 8px;">
-        <h4 style="color: var(--secondary); margin-top: 0;">Layered Design</h4>
-        <p>Overlap transfers to create depth, similar to fabric layers in your designs.</p>
-      </div>
-      
-      <div style="background: white; padding: 15px; border-radius: 8px;">
-        <h4 style="color: var(--secondary); margin-top: 0;">Text Elements</h4>
-        <p>Add text that connects to your design story or concept.</p>
-      </div>
-    </div>
-    
-    <div style="margin-top: 20px; padding: 10px 15px; background: rgba(234, 55, 163, 0.1); border-left: 4px solid var(--primary); border-radius: 4px;">
-      <p><strong>Make 3-4 different tape samples:</strong> Try different tapes (clear, matte, washi, masking tape) on various printed materials.</p>
-    </div>
-  </div>
-  
-  <!-- VIDEO TUTORIAL SECTION -->
-  <div class="video-tutorial">
-    <div class="video-caption">Tape Transfer Technique: Watch Before Class</div>
-    <div class="video-wrapper">
-      <!-- Replace with your actual Panopto video embed code -->
-      <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=71ac3b0b-bda7-4360-8acd-b39f00addb4e" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-  
-  <!-- PRE-CLASS PREPARATION -->
-  <div class="prep-box">
-    <h3>⚠️ Before Class: Make Tape Transfers</h3>
-    
-    <div class="prep-list">
-      <div class="prep-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWdvbiBwb2ludHM9IjEyIDIgMTkuNTYgNS4zMiAxOS41NiAxNS42OCAxMiAxOSA0LjQ0IDE1LjY4IDQuNDQgNS4zMiAxMiAyIj48L3BvbHlnb24+PC9zdmc+" />
-        <span>Make 3-4 tape samples</span>
-      </div>
-      <div class="prep-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjMgMTlhMiAyIDAgMCAxLTIgMkg3YTIgMiAwIDAgMS0yLTJWNWEyIDIgMCAwIDEgMi0yaDUuNWEyIDIgMCAwIDEgMS42My45NUwxNSA5SDIxYTIgMiAwIDAgMSAyIDJ2OHoiPjwvcGF0aD48L3N2Zz4=" />
-        <span>Scan at 300dpi</span>
-      </div>
-      <div class="prep-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgMTVWNkEyIDIgMCAwIDAgMTkgNEg1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgzLjQiPjwvcGF0aD48cGF0aCBkPSJNMTUgMTlsLTEgNCI+PC9wYXRoPjxwYXRoIGQ9Ik0yMiAxOGgtOCI+PC9wYXRoPjwvc3ZnPg==" />
-        <span>Use laser prints only</span>
-      </div>
-      <div class="prep-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDh2NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNmguMDEiPjwvcGF0aD48L3N2Zz4=" />
-        <span>Bring digital files to class</span>
-      </div>
-    </div>
-  </div>
-  
-  <!-- STEP BY STEP INSTRUCTIONS FOR DIGITAL MANIPULATION -->
-  <div class="instruction-container">
-    <h2>Step-by-Step: Digital Manipulation of Tape Transfers</h2>
-    
-    <!-- Step 1 -->
-    <div class="instruction-steps active" id="step-1">
-      <div class="instruction-header">
-        <div class="instruction-number">1</div>
-        <div class="instruction-title">Content-Aware Move Tool</div>
-      </div>
-      
-      <p>The Content-Aware Move tool lets you reposition elements while automatically filling the background:</p>
-      
-      <div class="steps-grid">
-        <div class="step-box">
-          <div class="step-number">First</div>
-          <div class="step-content">
-            <p>Select Content-Aware Move tool (<span class="shortcut">J</span> key)</p>
-            <img class="step-image" src="content-aware-move-tool.jpg" alt="Select Content-Aware Move tool" />
-          </div>
-        </div>
-        
-        <div class="step-box">
-          <div class="step-number">Then</div>
-          <div class="step-content">
-            <p>Draw selection around element</p>
-            <img class="step-image" src="draw-selection.jpg" alt="Draw selection" />
-          </div>
-        </div>
-        
-        <div class="step-box">
-          <div class="step-number">Next</div>
-          <div class="step-content">
-            <p>Drag selection to new position</p>
-            <img class="step-image" src="drag-to-position.jpg" alt="Drag to new position" />
-          </div>
-        </div>
-        
-        <div class="step-box">
-          <div class="step-number">Finally</div>
-          <div class="step-content">
-            <p>Photoshop blends the background</p>
-            <img class="step-image" src="photoshop-blend-background.jpg" alt="Photoshop blends background" />
-          </div>
-        </div>
-      </div>
-      
+    <div class="micro-content">
+      <!-- Video Tutorial Section -->
       <div class="video-tutorial">
-        <div class="video-caption">Content-Aware Move Tool Tutorial</div>
+        <div class="video-caption">Tape Transfer Technique: Watch Before Class</div>
         <div class="video-wrapper">
-          <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=505318ca-dfd2-42f0-b56d-b39900a14563" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <!-- Replace with your actual Panopto video embed code -->
+          <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=71ac3b0b-bda7-4360-8acd-b39f00addb4e" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
-    </div>
-    
-    <!-- Step 2 -->
-    <div class="instruction-steps" id="step-2">
-      <div class="instruction-header">
-        <div class="instruction-number">2</div>
-        <div class="instruction-title">Selection Tools for Fashion Elements</div>
-      </div>
       
-      <p>Use these selection tools to isolate specific parts of your tape transfers:</p>
-      
-      <div class="tool-grid">
-        <div class="tool-card">
-          <div class="tool-header" style="background: #ea37a3;">Polygonal Lasso Tool</div>
-          <div class="tool-steps">
-            <p>For selecting straight-edge shapes:</p>
-            <ol>
-              <li>Press <span class="shortcut">L</span> key</li>
-              <li>Click points around object</li>
-              <li>Connect back to start</li>
-              <li>Copy: <span class="shortcut">Cmd/Ctrl+C</span></li>
-              <li>Paste: <span class="shortcut">Cmd/Ctrl+V</span></li>
-            </ol>
-            <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cG9seWdvbiBwb2ludHM9IjEwMCw1MCAxNTAsNzUgMjAwLDUwIDIwMCwxNTAgMTUwLDEyNSAxMDAsMTUwIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNSw1Ii8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iNTAiIHI9IjQiIGZpbGw9IiNlYTM3YTMiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSI3NSIgcj0iNCIgZmlsbD0iI2VhMzdhMyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTI1IiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PC9zdmc+" alt="Polygonal Lasso Tool" />
+      <!-- Pre-Class Preparation -->
+      <div class="prep-box">
+        <h3>⚠️ Before Class: Make Tape Transfers</h3>
+        
+        <div class="prep-list">
+          <div class="prep-item">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWdvbiBwb2ludHM9IjEyIDIgMTkuNTYgNS4zMiAxOS41NiAxNS42OCAxMiAxOSA0LjQ0IDE1LjY4IDQuNDQgNS4zMiAxMiAyIj48L3BvbHlnb24+PC9zdmc+" />
+            <span>Make 3-4 tape samples</span>
+          </div>
+          <div class="prep-item">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjMgMTlhMiAyIDAgMCAxLTIgMkg3YTIgMiAwIDAgMS0yLTJWNWEyIDIgMCAwIDEgMi0yaDUuNWEyIDIgMCAwIDEgMS42My45NUwxNSA5SDIxYTIgMiAwIDAgMSAyIDJ2OHoiPjwvcGF0aD48L3N2Zz4=" />
+            <span>Scan at 300dpi</span>
+          </div>
+          <div class="prep-item">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgMTVWNkEyIDIgMCAwIDAgMTkgNEg1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgzLjQiPjwvcGF0aD48cGF0aCBkPSJNMTUgMTlsLTEgNCI+PC9wYXRoPjxwYXRoIGQ9Ik0yMiAxOGgtOCI+PC9wYXRoPjwvc3ZnPg==" />
+            <span>Use laser prints only</span>
+          </div>
+          <div class="prep-item">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDh2NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAxNmguMDEiPjwvcGF0aD48L3N2Zz4=" />
+            <span>Bring digital files to class</span>
           </div>
         </div>
         
-        <div class="tool-card">
-          <div class="tool-header" style="background: #ea37a3;">Magic Wand Tool</div>
-          <div class="tool-steps">
-            <p>For selecting similar colored areas:</p>
-            <ol>
-              <li>Press <span class="shortcut">W</span> key</li>
-              <li>Set Tolerance (20-40)</li>
-              <li>Click on area to select</li>
-              <li><span class="shortcut">Shift+Click</span> to add</li>
-              <li><span class="shortcut">Alt/Option+Click</span> to subtract</li>
-            </ol>
-            <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI3NSIgeT0iNTAiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0iI2VhMzdhMyIgb3BhY2l0eT0iMC4zIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNCIgZmlsbD0iI2VhMzdhMyIvPjwvc3ZnPg==" alt="Magic Wand Tool" />
-          </div>
+        <div style="margin-top: 20px; padding: 10px 15px; background: rgba(234, 55, 163, 0.1); border-left: 4px solid var(--primary); border-radius: 4px;">
+          <p><strong>Make 3-4 different tape samples:</strong> Try different tapes (clear, matte, washi, masking tape) on various printed materials.</p>
         </div>
       </div>
+    </div>
+    <div class="micro-footer">
+      <button class="nav-button prev-module" data-prev="inspiration">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Previous
+      </button>
+      <button class="nav-button next-module" data-next="techniques">
+        Next: Techniques
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- MODULE 3: TECHNIQUES -->
+  <div class="micro-container module-content" id="techniques" style="display: none;">
+    <div class="micro-header">
+      <span>3. Digital Techniques</span>
+      <span>⭐ 25 min</span>
+    </div>
+    <div class="micro-content">
+      <h2 style="margin-top: 0;">Digital Manipulation Techniques</h2>
       
-      <div style="margin-top: 20px;">
-        <div class="tool-card">
-          <div class="tool-header" style="background: #ea37a3;">Remember to Deselect</div>
-          <div class="tool-steps">
-            <p>Always deselect when finished:</p>
-            <div style="text-align: center; margin: 20px 0;">
-              <span class="shortcut" style="font-size: 1.2rem; padding: 10px 15px;">Cmd/Ctrl+D</span>
+      <!-- Technique 1 -->
+      <div class="micro-container" style="margin-top: 15px; border-color: var(--secondary);">
+        <div class="micro-header" style="background-color: var(--secondary);">
+          <span>Technique 1: Content-Aware Move Tool</span>
+          <span>⭐ 5 min</span>
+        </div>
+        <div class="micro-content">
+          <p>The Content-Aware Move tool lets you reposition elements while automatically filling the background:</p>
+          
+          <div class="steps-grid">
+            <div class="step-box">
+              <div class="step-number">First</div>
+              <div class="step-content">
+                <p>Select Content-Aware Move tool (<span class="shortcut">J</span> key)</p>
+                <img class="step-image" src="content-aware-move-tool.jpg" alt="Select Content-Aware Move tool" />
+              </div>
             </div>
-            <p>This removes the "marching ants" selection outline</p>
-            <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxsaW5lIHgxPSIxMTAiIHkxPSIxMDAiIHgyPSIxOTAiIHkyPSIxMDAiIHN0cm9rZT0iI2VhMzdhMyIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjE1MCIgeTE9IjYwIiB4Mj0iMTUwIiB5Mj0iMTQwIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==" alt="Deselect" />
+            
+            <div class="step-box">
+              <div class="step-number">Then</div>
+              <div class="step-content">
+                <p>Draw selection around element</p>
+                <img class="step-image" src="draw-selection.jpg" alt="Draw selection" />
+              </div>
+            </div>
+            
+            <div class="step-box">
+              <div class="step-number">Next</div>
+              <div class="step-content">
+                <p>Drag selection to new position</p>
+                <img class="step-image" src="drag-to-position.jpg" alt="Drag to new position" />
+              </div>
+            </div>
+            
+            <div class="step-box">
+              <div class="step-number">Finally</div>
+              <div class="step-content">
+                <p>Photoshop blends the background</p>
+                <img class="step-image" src="photoshop-blend-background.jpg" alt="Photoshop blends background" />
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-tutorial">
+            <div class="video-caption">Content-Aware Move Tool Tutorial</div>
+            <div class="video-wrapper">
+              <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=505318ca-dfd2-42f0-b56d-b39900a14563" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Technique 2 -->
+      <div class="micro-container" style="margin-top: 15px; border-color: var(--secondary);">
+        <div class="micro-header" style="background-color: var(--secondary);">
+          <span>Technique 2: Selection Tools for Fashion Elements</span>
+          <span>⭐ 5 min</span>
+        </div>
+        <div class="micro-content">
+          <p>Use these selection tools to isolate specific parts of your tape transfers:</p>
+          
+          <div class="tool-grid">
+            <div class="tool-card">
+              <div class="tool-header" style="background: #ea37a3;">Polygonal Lasso Tool</div>
+              <div class="tool-steps">
+                <p>For selecting straight-edge shapes:</p>
+                <ol>
+                  <li>Press <span class="shortcut">L</span> key</li>
+                  <li>Click points around object</li>
+                  <li>Connect back to start</li>
+                  <li>Copy: <span class="shortcut">Cmd/Ctrl+C</span></li>
+                  <li>Paste: <span class="shortcut">Cmd/Ctrl+V</span></li>
+                </ol>
+                <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cG9seWdvbiBwb2ludHM9IjEwMCw1MCAxNTAsNzUgMjAwLDUwIDIwMCwxNTAgMTUwLDEyNSAxMDAsMTUwIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNSw1Ii8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iNTAiIHI9IjQiIGZpbGw9IiNlYTM3YTMiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSI3NSIgcj0iNCIgZmlsbD0iI2VhMzdhMyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTI1IiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTUwIiByPSI0IiBmaWxsPSIjZWEzN2EzIi8+PC9zdmc+" alt="Polygonal Lasso Tool" />
+              </div>
+            </div>
+            
+            <div class="tool-card">
+              <div class="tool-header" style="background: #ea37a3;">Magic Wand Tool</div>
+              <div class="tool-steps">
+                <p>For selecting similar colored areas:</p>
+                <ol>
+                  <li>Press <span class="shortcut">W</span> key</li>
+                  <li>Set Tolerance (20-40)</li>
+                  <li>Click on area to select</li>
+                  <li><span class="shortcut">Shift+Click</span> to add</li>
+                  <li><span class="shortcut">Alt/Option+Click</span> to subtract</li>
+                </ol>
+                <img class="tool-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI3NSIgeT0iNTAiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0iI2VhMzdhMyIgb3BhY2l0eT0iMC4zIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNCIgZmlsbD0iI2VhMzdhMyIvPjwvc3ZnPg==" alt="Magic Wand Tool" />
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 20px;">
+            <div class="tool-card">
+              <div class="tool-header" style="background: #ea37a3;">Remember to Deselect</div>
+              <div class="tool-steps">
+                <p>Always deselect when finished:</p>
+                <div style="text-align: center; margin: 20px 0;">
+                  <span class="shortcut" style="font-size: 1.2rem; padding: 10px 15px;">Cmd/Ctrl+D</span>
+                </div>
+                <p>This removes the "marching ants" selection outline</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Technique 3 -->
+      <div class="micro-container" style="margin-top: 15px; border-color: var(--secondary);">
+        <div class="micro-header" style="background-color: var(--secondary);">
+          <span>Technique 3: Content-Aware Fill for Backgrounds</span>
+          <span>⭐ 5 min</span>
+        </div>
+        <div class="micro-content">
+          <p>Content-Aware Fill helps remove unwanted elements or fill empty areas:</p>
+          
+          <div class="steps-grid">
+            <div class="step-box">
+              <div class="step-number">Step 1</div>
+              <div class="step-content">
+                <p>Select area to fill using Magic Wand (<span class="shortcut">W</span>)</p>
+                <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjwvc3ZnPg==" alt="Select area to fill" />
+              </div>
+            </div>
+            
+            <div class="step-box">
+              <div class="step-number">Step 2</div>
+              <div class="step-content">
+                <p>Go to <span class="shortcut">Edit → Content-Aware Fill</span></p>
+                <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMzAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2RkZCIvPjx0ZXh0IHg9IjcwIiB5PSI0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjMzMzIj5FZGl0PC90ZXh0Pjx0ZXh0IHg9IjExNSIgeT0iNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+PjwvdGV4dD48dGV4dCB4PSIxMzAiIHk9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMwYTgwODAiPkNvbnRlbnQtQXdhcmUgRmlsbDwvdGV4dD48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjwvc3ZnPg==" alt="Open Content-Aware Fill dialog" />
+              </div>
+            </div>
+            
+            <div class="step-box">
+              <div class="step-number">Step 3</div>
+              <div class="step-content">
+                <p>Adjust sampling area with brush if needed</p>
+                <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTYwIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNkZGQiLz48cmVjdCB4PSI0MCIgeT0iNDAiIHdpZHRoPSIyMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiMwYTgwODAiIG9wYWNpdHk9IjAuMyIvPjxyZWN0IHg9IjIxMCIgeT0iNDAiIHdpZHRoPSI1MCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiNmZmYiLz48dGV4dCB4PSIyMzUiIHk9IjcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzMzMiPlNhbXBsZTwvdGV4dD48dGV4dCB4PSIyMzUiIHk9Ijg1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzMzMiPkFyZWE8L3RleHQ+PC9zdmc+" alt="Adjust sampling area" />
+              </div>
+            </div>
+            
+            <div class="step-box">
+              <div class="step-number">Step 4</div>
+              <div class="step-content">
+                <p>Click "OK" to apply the fill</p>
+                <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0iI2UwZTBlMCIvPjwvc3ZnPg==" alt="Final result with area filled" />
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-tutorial">
+            <div class="video-caption">Content-Aware Fill Tutorial</div>
+            <div class="video-wrapper">
+              <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b3839b74-5113-4c3f-9929-b37d00a206ba" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Technique 4 -->
+      <div class="micro-container" style="margin-top: 15px; border-color: var(--secondary);">
+        <div class="micro-header" style="background-color: var(--secondary);">
+          <span>Technique 4: Patch Tool & Blend Modes</span>
+          <span>⭐ 10 min</span>
+        </div>
+        <div class="micro-content">
+          <p>The Patch Tool is perfect for fixing rough edges in your tape transfers and creating smooth blends:</p>
+          
+          <div class="steps-grid">
+            <div class="step-box">
+              <div class="step-number">Step 1</div>
+              <div class="step-content">
+                <p>Select the Patch Tool (<span class="shortcut">J</span> key, then toggle through)</p>
+                <img class="step-image" src="patch-tool-select.jpg" alt="Select Patch Tool" />
+              </div>
+            </div>
+            
+            <div class="step-box">
+              <div class="step-number">Step 2</div>
+              <div class="step-content">
+                <p>Make sure "Source" is selected in the Options bar</p>
+                <p>Draw a selection around the area to fix (like a rough edge)</p>
+                <img class="step-image" src="patch-selection-draw.jpg" alt="Draw selection around area" />
+              </div>
+            </div>
+            
+            <div class="step-box">
+              <div class="step-number">Step 3</div>
+              <div class="step-content">
+                <p>Click and drag the selection to a good source area to sample from</p>
+                <img class="step-image" src="patch-drag-source.jpg" alt="Drag to good source area" />
+              </div>
+            </div>
+            
+            <div class="step-box">
+              <div class="step-number">Step 4</div>
+              <div class="step-content">
+                <p>Release to blend the two areas seamlessly</p>
+                <img class="step-image" src="patch-result.jpg" alt="Seamlessly blended result" />
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 20px; padding: 15px; background-color: var(--secondary-light); border-radius: 8px;">
+            <h4 style="color: var(--secondary); margin-top: 0;">Uses for Fashion Design:</h4>
+            <ul style="margin-bottom: 0;">
+              <li><strong>Clean Edges:</strong> Fix rough edges of tape transfers</li>
+              <li><strong>Blend Textures:</strong> Create smooth transitions between textures</li>
+              <li><strong>Extend Patterns:</strong> Copy texture from one area to another</li>
+              <li><strong>Mix Elements:</strong> Combine pieces from different sources</li>
+            </ul>
+          </div>
+          
+          <!-- Dodge Tool Section -->
+          <div style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px;">
+            <h3>Dodge Tool for Highlights</h3>
+            <p>Lighten specific areas of your tape transfer elements:</p>
+            <ol>
+              <li>Select the Dodge tool (<span class="shortcut">O</span> key)</li>
+              <li>Set Range to "Midtones" in the options bar</li>
+              <li>Use a soft brush at 20-30% Exposure</li>
+              <li>Paint over areas you want to lighten</li>
+            </ol>
+          </div>
+          
+          <div class="video-tutorial">
+            <div class="video-caption">Blending-modes Tutorial</div>
+            <div class="video-wrapper">
+              <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=37e1b91d-d690-4bd4-a15d-b39900b5af52" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- Step 3 -->
-    <div class="instruction-steps" id="step-3">
-      <div class="instruction-header">
-        <div class="instruction-number">3</div>
-        <div class="instruction-title">Content-Aware Fill for Backgrounds</div>
-      </div>
-      
-      <p>Content-Aware Fill helps remove unwanted elements or fill empty areas:</p>
-      
-      <div class="steps-grid">
-        <div class="step-box">
-          <div class="step-number">Step 1</div>
-          <div class="step-content">
-            <p>Select area to fill using Magic Wand (<span class="shortcut">W</span>)</p>
-            <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjwvc3ZnPg==" alt="Select area to fill" />
-          </div>
-        </div>
-        
-        <div class="step-box">
-          <div class="step-number">Step 2</div>
-          <div class="step-content">
-            <p>Go to <span class="shortcut">Edit → Content-Aware Fill</span></p>
-            <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMzAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2RkZCIvPjx0ZXh0IHg9IjcwIiB5PSI0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjMzMzIj5FZGl0PC90ZXh0Pjx0ZXh0IHg9IjExNSIgeT0iNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+PjwvdGV4dD48dGV4dCB4PSIxMzAiIHk9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMwYTgwODAiPkNvbnRlbnQtQXdhcmUgRmlsbDwvdGV4dD48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjwvc3ZnPg==" alt="Open Content-Aware Fill dialog" />
-          </div>
-        </div>
-        
-        <div class="step-box">
-          <div class="step-number">Step 3</div>
-          <div class="step-content">
-            <p>Adjust sampling area with brush if needed</p>
-            <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTYwIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNkZGQiLz48cmVjdCB4PSI0MCIgeT0iNDAiIHdpZHRoPSIyMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiMwYTgwODAiIG9wYWNpdHk9IjAuMyIvPjxyZWN0IHg9IjIxMCIgeT0iNDAiIHdpZHRoPSI1MCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiNmZmYiLz48dGV4dCB4PSIyMzUiIHk9IjcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzMzMiPlNhbXBsZTwvdGV4dD48dGV4dCB4PSIyMzUiIHk9Ijg1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzMzMiPkFyZWE8L3RleHQ+PC9zdmc+" alt="Adjust sampling area" />
-          </div>
-        </div>
-        
-        <div class="step-box">
-          <div class="step-number">Step 4</div>
-          <div class="step-content">
-            <p>Click "OK" to apply the fill</p>
-            <img class="step-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSIzMCIgZmlsbD0iI2UwZTBlMCIvPjwvc3ZnPg==" alt="Final result with area filled" />
-          </div>
-        </div>
-      </div>
-      
-      <div class="video-tutorial">
-        <div class="video-caption">Content-Aware Fill Tutorial</div>
-        <div class="video-wrapper">
-          <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b3839b74-5113-4c3f-9929-b37d00a206ba" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
+    <div class="micro-footer">
+      <button class="nav-button prev-module" data-prev="preparation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Previous
+      </button>
+      <button class="nav-button next-module" data-next="typography">
+        Next: Typography
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
     </div>
-    
-    <!-- Step 4 -->
-    <div class="instruction-steps" id="step-4">
-      <div class="instruction-header">
-        <div class="instruction-number">4</div>
-        <div class="instruction-title">Patch Tool for Repairing and Blending</div>
-      </div>
-      
-      <p>The Patch Tool is perfect for fixing rough edges in your tape transfers and creating smooth blends:</p>
-      
-      <div class="steps-grid">
-        <div class="step-box">
-          <div class="step-number">Step 1</div>
-          <div class="step-content">
-            <p>Select the Patch Tool (<span class="shortcut">J</span> key, then toggle through)</p>
-            <img class="step-image" src="patch-tool-select.jpg" alt="Select Patch Tool" />
-          </div>
-        </div>
-        
-        <div class="step-box">
-          <div class="step-number">Step 2</div>
-          <div class="step-content">
-            <p>Make sure "Source" is selected in the Options bar</p>
-            <p>Draw a selection around the area to fix (like a rough edge)</p>
-            <img class="step-image" src="patch-selection-draw.jpg" alt="Draw selection around area" />
-          </div>
-        </div>
-        
-        <div class="step-box">
-          <div class="step-number">Step 3</div>
-          <div class="step-content">
-            <p>Click and drag the selection to a good source area to sample from</p>
-            <img class="step-image" src="patch-drag-source.jpg" alt="Drag to good source area" />
-          </div>
-        </div>
-        
-        <div class="step-box">
-          <div class="step-number">Step 4</div>
-          <div class="step-content">
-            <p>Release to blend the two areas seamlessly</p>
-            <img class="step-image" src="patch-result.jpg" alt="Seamlessly blended result" />
-          </div>
-        </div>
-      </div>
-      
-      <div style="margin-top: 20px; padding: 15px; background-color: var(--secondary-light); border-radius: 8px;">
-        <h4 style="color: var(--secondary); margin-top: 0;">Uses for Fashion Design:</h4>
-        <ul style="margin-bottom: 0;">
-          <li><strong>Clean Edges:</strong> Fix rough edges of tape transfers</li>
-          <li><strong>Blend Textures:</strong> Create smooth transitions between textures</li>
-          <li><strong>Extend Patterns:</strong> Copy texture from one area to another</li>
-          <li><strong>Mix Elements:</strong> Combine pieces from different sources</li>
-        </ul>
-      </div>
-      
-      <div class="video-tutorial">
-        <div class="video-caption">Patch Tool Tutorial</div>
-        <div class="video-wrapper">
-          <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9abedd5a-4837-485a-a9c9-b39900fd9a97" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
+  </div>
+  
+  <!-- MODULE 4: TYPOGRAPHY -->
+  <div class="micro-container module-content" id="typography" style="display: none;">
+    <div class="micro-header">
+      <span>4. Typography & Text Layout</span>
+      <span>⭐ 10 min</span>
     </div>
-    
-    <!-- Step 5 -->
-    <div class="instruction-steps" id="step-5">
-      <div class="instruction-header">
-        <div class="instruction-number">5</div>
-        <div class="instruction-title">Blend Modes & Dodge Tool</div>
-      </div>
-      
-      <p>After moving elements, use blend modes to integrate tape transfers and add highlights:</p>
-     
-      <!-- Dodge Tool Section -->
-      <div style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px;">
-        <h3>Dodge Tool for Highlights</h3>
-        <p>Lighten specific areas of your tape transfer elements:</p>
-        <ol>
-          <li>Select the Dodge tool (<span class="shortcut">O</span> key)</li>
-          <li>Set Range to "Midtones" in the options bar</li>
-          <li>Use a soft brush at 20-30% Exposure</li>
-          <li>Paint over areas you want to lighten</li>
-        </ol>
-        <img class="tool-image" style="max-width: 300px; margin: 15px auto; display: block;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTUwIiB2aWV3Qm94PSIwIDAgMzAwIDE1MCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNmNWY1ZjUiLz48cmVjdCB4PSI3NSIgeT0iMjUiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZTBlMGUwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iNzUiIHI9IjQwIiBmaWxsPSIjZWEzN2EzIiBvcGFjaXR5PSIwLjMiLz48Y2lyY2xlIGN4PSIxNzAiIGN5PSI2NSIgcj0iMTUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuNiIvPjxwYXRoIGQ9Ik0xNzAsNjUgTTE4NSw2NSIgc3Ryb2tlPSIjZWEzN2EzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjIsMiIvPjxjaXJjbGUgY3g9IjE4NSIgY3k9IjY1IiByPSI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNlYTM3YTMiIHN0cm9rZS13aWR0aD0iMiIvPjx0ZXh0IHg9IjIwMCIgeT0iNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzMzMyI+RG9kZ2UgVG9vbDwvdGV4dD48L3N2Zz4=" alt="Dodge Tool" />
-      </div>
-      
-      <div class="video-tutorial">
-        <div class="video-caption">Blending-modes Tutorial</div>
-        <div class="video-wrapper">
-          <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=37e1b91d-d690-4bd4-a15d-b39900b5af52" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Step 6 -->
-    <div class="instruction-steps" id="step-6">
-      <div class="instruction-header">
-        <div class="instruction-number">6</div>
-        <div class="instruction-title">Typography & Text Layout</div>
-      </div>
-      
+    <div class="micro-content">
       <div class="typography-box">
         <h3>Using Text with Your Fashion Elements</h3>
         <p><strong>Aim:</strong> Make sure your text supports your images and feels professional and balanced.</p>
@@ -1055,14 +1161,25 @@
         <p><strong>Tip:</strong> Good text design shouldn't compete with your images — it should help tell the story, quietly.</p>
       </div>
     </div>
-    
-    <!-- Step 7 -->
-    <div class="instruction-steps" id="step-7">
-      <div class="instruction-header">
-        <div class="instruction-number">7</div>
-        <div class="instruction-title">Finalizing & Submission to Padlet</div>
-      </div>
-      
+    <div class="micro-footer">
+      <button class="nav-button prev-module" data-prev="techniques">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Previous
+      </button>
+      <button class="nav-button next-module" data-next="submission">
+        Next: Submission
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- MODULE 5: SUBMISSION -->
+  <div class="micro-container module-content" id="submission" style="display: none;">
+    <div class="micro-header">
+      <span>5. Finalizing & Submission to Padlet</span>
+      <span>⭐ 15 min</span>
+    </div>
+    <div class="micro-content">
       <div class="prep-box" style="background-color: var(--secondary-light);">
         <h3 style="color: var(--secondary);">Before Submitting Your Work:</h3>
         
@@ -1134,95 +1251,97 @@
         </div>
       </div>
     </div>
-    
-    <!-- Step Navigation -->
-    <div class="step-navigation">
-      <button class="nav-button" id="prev-button" disabled>
+    <div class="micro-footer">
+      <button class="nav-button prev-module" data-prev="typography">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
         Previous
       </button>
-      <button class="nav-button" id="next-button">
-        Next
+      <button class="nav-button next-module" data-next="quiz">
+        Next: Quiz
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </button>
     </div>
-    
-    <div class="step-indicator">
-      <div class="step-dot active" data-step="1"></div>
-      <div class="step-dot" data-step="2"></div>
-      <div class="step-dot" data-step="3"></div>
-      <div class="step-dot" data-step="4"></div>
-      <div class="step-dot" data-step="5"></div>
-      <div class="step-dot" data-step="6"></div>
-      <div class="step-dot" data-step="7"></div>
-    </div>
   </div>
   
-  <!-- QUIZ SECTION -->
-  <div class="quiz-container">
-    <div class="quiz-header">Test Your Knowledge</div>
-    <div class="quiz-content">
-      <h3>Part 1: Content-Aware Move Tool Steps</h3>
-      <p>Drag and drop the steps in the correct order:</p>
-      
-      <div class="draggable-container">
-        <div class="draggable" draggable="true">Select the Content-Aware Move tool</div>
-        <div class="draggable" draggable="true">Draw a selection around the object</div>
-        <div class="draggable" draggable="true">Drag the selection to new position</div>
-        <div class="draggable" draggable="true">Let Photoshop blend the moved content</div>
-      </div>
-      
-      <div class="drop-zone">
-        <p>Drop steps here in order</p>
-      </div>
-      
-      <button class="check-button" id="check-order-button">Check Order</button>
-      <div class="feedback" id="order-feedback"></div>
-      
-      <h3 style="margin-top: 30px;">Part 2: Quick Quiz</h3>
-      
-      <div class="question">
-        <div class="question-text">Which tool is best for selecting irregular fashion elements with straight edges?</div>
-        <div class="options">
-          <div class="option" data-correct="false">Magnetic Lasso Tool</div>
-          <div class="option" data-correct="true">Polygonal Lasso Tool</div>
-          <div class="option" data-correct="false">Quick Selection Tool</div>
-          <div class="option" data-correct="false">Magic Wand Tool</div>
+  <!-- MODULE 6: QUIZ -->
+  <div class="micro-container module-content" id="quiz" style="display: none;">
+    <div class="micro-header">
+      <span>6. Knowledge Check: Test Your Understanding</span>
+      <span>⭐ 10 min</span>
+    </div>
+    <div class="micro-content">
+      <div class="quiz-container" style="margin: 0; border: none; box-shadow: none;">
+        <div class="quiz-content" style="padding: 0; background: transparent;">
+          <h3>Part 1: Content-Aware Move Tool Steps</h3>
+          <p>Drag and drop the steps in the correct order:</p>
+          
+          <div class="draggable-container">
+            <div class="draggable" draggable="true">Select the Content-Aware Move tool</div>
+            <div class="draggable" draggable="true">Draw a selection around the object</div>
+            <div class="draggable" draggable="true">Drag the selection to new position</div>
+            <div class="draggable" draggable="true">Let Photoshop blend the moved content</div>
+          </div>
+          
+          <div class="drop-zone">
+            <p>Drop steps here in order</p>
+          </div>
+          
+          <button class="check-button" id="check-order-button">Check Order</button>
+          <div class="feedback" id="order-feedback"></div>
+          
+          <h3 style="margin-top: 30px;">Part 2: Quick Quiz</h3>
+          
+          <div class="question">
+            <div class="question-text">Which tool is best for selecting irregular fashion elements with straight edges?</div>
+            <div class="options">
+              <div class="option" data-correct="false">Magnetic Lasso Tool</div>
+              <div class="option" data-correct="true">Polygonal Lasso Tool</div>
+              <div class="option" data-correct="false">Quick Selection Tool</div>
+              <div class="option" data-correct="false">Magic Wand Tool</div>
+            </div>
+          </div>
+          
+          <div class="question">
+            <div class="question-text">Which blend mode is most effective for integrating tape transfers with textured backgrounds?</div>
+            <div class="options">
+              <div class="option" data-correct="true">Multiply</div>
+              <div class="option" data-correct="false">Difference</div>
+              <div class="option" data-correct="false">Luminosity</div>
+              <div class="option" data-correct="false">Color</div>
+            </div>
+          </div>
+          
+          <div class="question">
+            <div class="question-text">What keyboard shortcut do you use to deselect a selection?</div>
+            <div class="options">
+              <div class="option" data-correct="false">Cmd/Ctrl+A</div>
+              <div class="option" data-correct="true">Cmd/Ctrl+D</div>
+              <div class="option" data-correct="false">Cmd/Ctrl+H</div>
+              <div class="option" data-correct="false">Cmd/Ctrl+Z</div>
+            </div>
+          </div>
+          
+          <div class="question">
+            <div class="question-text">Which tool would you use to blend textures between two areas of a tape transfer?</div>
+            <div class="options">
+              <div class="option" data-correct="false">Healing Brush Tool</div>
+              <div class="option" data-correct="true">Patch Tool</div>
+              <div class="option" data-correct="false">Clone Stamp Tool</div>
+              <div class="option" data-correct="false">Smudge Tool</div>
+            </div>
+          </div>
+          
+          <button class="check-button" id="check-quiz-button">Check Answers</button>
+          <div class="feedback" id="quiz-feedback"></div>
         </div>
       </div>
-      
-      <div class="question">
-        <div class="question-text">Which blend mode is most effective for integrating tape transfers with textured backgrounds?</div>
-        <div class="options">
-          <div class="option" data-correct="true">Multiply</div>
-          <div class="option" data-correct="false">Difference</div>
-          <div class="option" data-correct="false">Luminosity</div>
-          <div class="option" data-correct="false">Color</div>
-        </div>
-      </div>
-      
-      <div class="question">
-        <div class="question-text">What keyboard shortcut do you use to deselect a selection?</div>
-        <div class="options">
-          <div class="option" data-correct="false">Cmd/Ctrl+A</div>
-          <div class="option" data-correct="true">Cmd/Ctrl+D</div>
-          <div class="option" data-correct="false">Cmd/Ctrl+H</div>
-          <div class="option" data-correct="false">Cmd/Ctrl+Z</div>
-        </div>
-      </div>
-      
-      <div class="question">
-        <div class="question-text">Which tool would you use to blend textures between two areas of a tape transfer?</div>
-        <div class="options">
-          <div class="option" data-correct="false">Healing Brush Tool</div>
-          <div class="option" data-correct="true">Patch Tool</div>
-          <div class="option" data-correct="false">Clone Stamp Tool</div>
-          <div class="option" data-correct="false">Smudge Tool</div>
-        </div>
-      </div>
-      
-      <button class="check-button" id="check-quiz-button">Check Answers</button>
-      <div class="feedback" id="quiz-feedback"></div>
+    </div>
+    <div class="micro-footer">
+      <button class="nav-button prev-module" data-prev="submission">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Previous
+      </button>
+      <span></span>
     </div>
   </div>
   
@@ -1235,80 +1354,72 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Step-by-Step Navigation
-    const steps = document.querySelectorAll('.instruction-steps');
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
-    const stepDots = document.querySelectorAll('.step-dot');
-    let currentStep = 1;
-    const totalSteps = steps.length;
+    // Module Navigation
+    const modules = document.querySelectorAll('.module-content');
+    const moduleDots = document.querySelectorAll('.module-dot');
+    const nextModuleButtons = document.querySelectorAll('.next-module');
+    const prevModuleButtons = document.querySelectorAll('.prev-module');
     
-    function updateStepVisibility() {
-      steps.forEach((step, index) => {
-        if (index + 1 === currentStep) {
-          step.classList.add('active');
-        } else {
-          step.classList.remove('active');
-        }
+    function showModule(moduleId) {
+      // Hide all modules
+      modules.forEach(module => {
+        module.style.display = 'none';
       });
       
-      // Update navigation buttons
-      prevButton.disabled = currentStep === 1;
-      nextButton.disabled = currentStep === totalSteps;
+      // Show selected module
+      const moduleToShow = document.getElementById(moduleId);
+      if (moduleToShow) {
+        moduleToShow.style.display = 'block';
+      }
       
-      // Update step indicators
-      stepDots.forEach((dot, index) => {
-        if (index + 1 === currentStep) {
+      // Update dots
+      moduleDots.forEach(dot => {
+        if (dot.dataset.module === moduleId) {
           dot.classList.add('active');
         } else {
           dot.classList.remove('active');
         }
       });
       
-      // Scroll to top of active step
-      const activeStep = document.querySelector('.instruction-steps.active');
-      if (activeStep) {
-        activeStep.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      // Update module title
+      const titles = {
+        'inspiration': 'Artist Inspiration & Transfer Techniques',
+        'preparation': 'Before Class: Prepare Your Tape Transfers',
+        'techniques': 'Digital Manipulation Techniques',
+        'typography': 'Typography & Text Layout',
+        'submission': 'Finalizing & Submission to Padlet',
+        'quiz': 'Knowledge Check: Test Your Understanding'
+      };
       
-      // Change Next button text on last step
-      if (currentStep === totalSteps) {
-        nextButton.innerHTML = `
-          Finish
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        `;
-      } else {
-        nextButton.innerHTML = `
-          Next
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        `;
-      }
+      document.querySelector('.module-title').textContent = titles[moduleId] || '';
     }
     
-    prevButton.addEventListener('click', () => {
-      if (currentStep > 1) {
-        currentStep--;
-        updateStepVisibility();
-      }
-    });
-    
-    nextButton.addEventListener('click', () => {
-      if (currentStep < totalSteps) {
-        currentStep++;
-        updateStepVisibility();
-      }
-    });
-    
-    // Click on step indicator dots
-    stepDots.forEach(dot => {
+    // Set up module dot clicks
+    moduleDots.forEach(dot => {
       dot.addEventListener('click', () => {
-        currentStep = parseInt(dot.dataset.step);
-        updateStepVisibility();
+        const moduleId = dot.dataset.module;
+        showModule(moduleId);
       });
     });
     
-    // Initialize step visibility
-    updateStepVisibility();
+    // Set up next module buttons
+    nextModuleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const nextModule = button.dataset.next;
+        showModule(nextModule);
+      });
+    });
+    
+    // Set up previous module buttons
+    prevModuleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const prevModule = button.dataset.prev;
+        showModule(prevModule);
+      });
+    });
+    
+    // Initialize first module
+    showModule('inspiration');
   
     // Drag and Drop Functionality
     const draggables = document.querySelectorAll('.draggable');
