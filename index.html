@@ -587,6 +587,9 @@ footer {
 .stuck .prob::before { content: "✗ "; color: #c62828; }
 .stuck .fix::before { content: "→ "; color: var(--teal, #0a7a7a); font-weight: 700; }
 @media (max-width: 600px) { .stuck .row { grid-template-columns: 1fr; } }
+
+/* screenshot slots: hidden until the file exists */
+.shot { display:block; max-width:100%; width:520px; height:auto; border:2px solid #1a1a1a; margin:10px 0; cursor:zoom-in; }
 </style>
 </head>
 <body>
@@ -738,7 +741,7 @@ footer {
             <li>Let go — Photoshop blends it</li>
           </ol>
           <div class="box-note gold"><strong>Tip:</strong> works best on textured backgrounds.</div>
-        </div>
+        <img class="shot" src="shots/content-aware-move.png" alt="Content-Aware Move in the healing tools" loading="lazy" onerror="this.remove()" onclick="window.open(this.src)"></div>
       </div>
 
       <div class="acc">
@@ -753,7 +756,7 @@ footer {
             <li>Green area = where Photoshop copies from</li>
             <li>Click OK · deselect <span class="key">Cmd/Ctrl</span>+<span class="key">D</span></li>
           </ol>
-        </div>
+        <img class="shot" src="shots/content-aware-fill.png" alt="Content-Aware Fill window with green area" loading="lazy" onerror="this.remove()" onclick="window.open(this.src)"></div>
       </div>
     </div>
 
@@ -810,7 +813,7 @@ footer {
         <li>Magic Wand = quick way to select white backgrounds</li>
         <li>Soft edges: <span class="menu">Select → Modify → Feather</span></li>
         <li>Finished? Deselect <span class="key">Cmd/Ctrl</span>+<span class="key">D</span></li>
-      </ul>
+      </ul><img class="shot" src="shots/magic-wand-tolerance.png" alt="Magic Wand Tolerance in the top bar" loading="lazy" onerror="this.remove()" onclick="window.open(this.src)"><img class="shot" src="shots/polygonal-lasso.png" alt="Polygonal Lasso selection" loading="lazy" onerror="this.remove()" onclick="window.open(this.src)">
     </div>
 
     <div class="stuck">
@@ -851,7 +854,7 @@ footer {
             <li>Drag to a clean area</li>
             <li>Let go — Photoshop blends it</li>
           </ol>
-        </div>
+        <img class="shot" src="shots/patch-tool.png" alt="Patch Tool set to Source" loading="lazy" onerror="this.remove()" onclick="window.open(this.src)"></div>
       </div>
 
       <div class="acc">
@@ -867,7 +870,7 @@ footer {
             <div class="chip"><b>Overlay</b><span>More contrast</span></div>
             <div class="chip"><b>Soft Light</b><span>Gentle contrast</span></div>
           </div>
-        </div>
+        <img class="shot" src="https://hsstokes.github.io/Creating-Stencils---Digital-Brushes/shots/blend-modes-menu.png" alt="Blend mode menu in the Layers panel" loading="lazy" onerror="this.remove()" onclick="window.open(this.src)"></div>
       </div>
 
       <div class="acc">
@@ -878,7 +881,7 @@ footer {
             <li>Range: Midtones · Exposure: 20–30%</li>
             <li>Paint to lighten gently</li>
           </ol>
-        </div>
+        <img class="shot" src="shots/dodge-tool.png" alt="Dodge Tool settings" loading="lazy" onerror="this.remove()" onclick="window.open(this.src)"></div>
       </div>
     </div>
 
