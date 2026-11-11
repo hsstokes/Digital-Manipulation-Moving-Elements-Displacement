@@ -576,6 +576,17 @@ footer {
 .feedback { margin-top: 10px; padding: 10px 14px; font-family: "Space Mono", monospace; font-weight: 700; font-size: 0.85rem; display: none; }
 .feedback.ok { display: block; background: var(--green-light); color: var(--green); }
 .feedback.no { display: block; background: #fbe7e5; color: #b3261e; }
+
+/* ---------- Stuck? troubleshooting (sweep Nov 2026) ---------- */
+.stuck { background: #fff; border: 2px solid var(--ink, #1a1a1a); margin: 20px 0; }
+.stuck .stuck-head { background: var(--ink, #1a1a1a); color: #fff; font-family: 'Space Mono', monospace; font-weight: 700; padding: 10px 16px; }
+.stuck .row { display: grid; grid-template-columns: 1fr 1.4fr; border-top: 1px dashed var(--warm-mid, #d4cfc8); }
+.stuck .row:first-of-type { border-top: 0; }
+.stuck .prob, .stuck .fix { padding: 10px 16px; font-size: 0.92rem; line-height: 1.6; }
+.stuck .prob { font-weight: 600; background: var(--paper, #f2ede8); }
+.stuck .prob::before { content: "✗ "; color: #c62828; }
+.stuck .fix::before { content: "→ "; color: var(--teal, #0a7a7a); font-weight: 700; }
+@media (max-width: 600px) { .stuck .row { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -746,11 +757,18 @@ footer {
       </div>
     </div>
 
+    <div class="stuck">
+      <div class="stuck-head">🆘 Stuck? Try this</div>
+      <div class="row"><div class="prob">I can’t find Content-Aware Move.</div><div class="fix">Click and <strong>hold</strong> the healing tool icon (<span class="key">J</span>). Choose it from the list.</div></div>
+      <div class="row"><div class="prob">Content-Aware Fill is greyed out.</div><div class="fix">Make a selection first. If still grey: right-click the layer › <strong>Rasterize Layer</strong>.</div></div>
+      <div class="row"><div class="prob">The result looks messy.</div><div class="fix">Undo <span class="key">Cmd/Ctrl</span>+<span class="key">Z</span>. Draw a looser selection with more background. Try again.</div></div>
+    </div>
+
     <div class="checklist" data-key="dm-task1">
       <h3>✅ Task 1 Checklist</h3>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Moved an element with Content-Aware Move</span></button>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Removed an area with Content-Aware Fill</span></button>
-      <button class="check-item" type="button"><span class="box"></span><span class="text">Screenshot taken</span></button>
+      <button class="check-item" type="button"><span class="box"></span><span class="text">Process JPEG exported</span></button>
       <div class="check-count"></div>
     </div>
 
@@ -795,12 +813,19 @@ footer {
       </ul>
     </div>
 
+    <div class="stuck">
+      <div class="stuck-head">🆘 Stuck? Try this</div>
+      <div class="row"><div class="prob">The Polygonal Lasso won’t finish.</div><div class="fix">Click back on your first point (a small circle appears). Or double-click.</div></div>
+      <div class="row"><div class="prob">My pasted shape is in the wrong place.</div><div class="fix">Use the Move Tool <span class="key">V</span> and drag it.</div></div>
+      <div class="row"><div class="prob">Nothing happens / the wrong part changes.</div><div class="fix">Look at the Layers panel. Click the correct layer first. Undo: <span class="key">Cmd/Ctrl</span>+<span class="key">Z</span></div></div>
+    </div>
+
     <div class="checklist" data-key="dm-task2">
       <h3>✅ Task 2 Checklist</h3>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Used Polygonal Lasso</span></button>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Used Magic Wand</span></button>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Pasted an element onto a new layer</span></button>
-      <button class="check-item" type="button"><span class="box"></span><span class="text">Screenshot taken</span></button>
+      <button class="check-item" type="button"><span class="box"></span><span class="text">Process JPEG exported</span></button>
       <div class="check-count"></div>
     </div>
 
@@ -857,11 +882,17 @@ footer {
       </div>
     </div>
 
+    <div class="stuck">
+      <div class="stuck-head">🆘 Stuck? Try this</div>
+      <div class="row"><div class="prob">The Patch Tool made it worse.</div><div class="fix">Undo <span class="key">Cmd/Ctrl</span>+<span class="key">Z</span>. Drag to a cleaner area with a similar texture.</div></div>
+      <div class="row"><div class="prob">The blend mode does nothing.</div><div class="fix">Click the transfer layer first, not the Background layer.</div></div>
+    </div>
+
     <div class="checklist" data-key="dm-task3">
       <h3>✅ Task 3 Checklist</h3>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Fixed an edge with the Patch Tool</span></button>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Tried 2+ blend modes</span></button>
-      <button class="check-item" type="button"><span class="box"></span><span class="text">Screenshot taken</span></button>
+      <button class="check-item" type="button"><span class="box"></span><span class="text">Process JPEG exported</span></button>
       <div class="check-count"></div>
     </div>
 
@@ -903,13 +934,20 @@ footer {
       </div>
     </div>
 
+    <div class="stuck">
+      <div class="stuck-head">🆘 Stuck? Try this</div>
+      <div class="row"><div class="prob">My text box won’t move.</div><div class="fix">Use the Move Tool <span class="key">V</span>, then drag.</div></div>
+      <div class="row"><div class="prob">My text is too big.</div><div class="fix">Select the text. Change the size in the top bar to 9–14pt.</div></div>
+      <div class="row"><div class="prob">I forgot to export a JPEG during the task.</div><div class="fix">Open <strong>Window › History</strong>. Click an earlier step. Export your JPEG. Click the last step to return. <em>Do not edit while on an earlier step.</em></div></div>
+    </div>
+
     <div class="checklist" data-key="dm-task4">
       <h3>✅ Task 4 Checklist</h3>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Added a title</span></button>
       <button class="check-item" type="button"><span class="box"></span><span class="text">One font · 9–14pt</span></button>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Harvard references added</span></button>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Saved PSD · exported A3 JPEG</span></button>
-      <button class="check-item" type="button"><span class="box"></span><span class="text">Screenshot taken</span></button>
+      <button class="check-item" type="button"><span class="box"></span><span class="text">Process JPEG exported</span></button>
       <div class="check-count"></div>
     </div>
 
@@ -934,11 +972,12 @@ footer {
       </div>
 
       <div class="acc">
-        <button class="acc-head" type="button"><span class="acc-num">2</span><span class="acc-title">Name + screenshots</span><span class="acc-arrow">›</span></button>
+        <button class="acc-head" type="button"><span class="acc-num">2</span><span class="acc-title">Name + JPEGs</span><span class="acc-arrow">›</span></button>
         <div class="acc-body">
           <ul>
+            <li>Export each one: <strong>File › Export › Export As…</strong> › Format: <strong>JPG</strong></li>
             <li>Type your full name</li>
-            <li>Upload <strong>2–3 screenshots</strong> from today — e.g. Content-Aware Move, a cut-out on a new layer, your blend modes</li>
+            <li>Upload <strong>2–3 exported JPEGs</strong> from today — e.g. Content-Aware Move, a cut-out on a new layer, your blend modes</li>
             <li>Add a short caption to each</li>
           </ul>
         </div>
@@ -977,7 +1016,7 @@ footer {
 
     <div class="checklist" data-key="dm-report">
       <h3>✅ Report Checklist</h3>
-      <button class="check-item" type="button"><span class="box"></span><span class="text">2–3 screenshots with captions</span></button>
+      <button class="check-item" type="button"><span class="box"></span><span class="text">2–3 JPEGs with captions</span></button>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Answered all 4 questions</span></button>
       <button class="check-item" type="button"><span class="box"></span><span class="text">Downloaded the PDF</span></button>
       <div class="check-count"></div>
